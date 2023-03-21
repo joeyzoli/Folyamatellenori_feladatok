@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -69,13 +70,18 @@ public class MainActivity extends AppCompatActivity
                             "', '"+ muvez.getText().toString() +"' )";
                     PreparedStatement statement = connection.prepareStatement(sql);
                     statement.executeUpdate();
-                    String sql2 = "select id from qualitydb.Folyamatellenori_alap where Datum ='"+ datum.getText().toString() +
-                            "' and ellenor ='"+ ellenor.getText().toString();
-                    statement.execute(sql2);
-                    ResultSet resultSet = statement.getResultSet();
-                    id = Integer.parseInt(resultSet.getString(1));
-                } catch (Exception e) {
-                    Log.e("DB_iras", "Error reading school information", e);
+                    String sql2 = "select id from qualitydb.Folyamatellenori_alap where Datum = '"+ datum.getText().toString() +
+                            "' and Ellenor ='"+ ellenor.getText().toString() +"'";
+                    PreparedStatement stmt = connection.prepareStatement(sql2);
+                    stmt.execute();
+                    ResultSet resultSet = stmt.getResultSet();
+                    if(resultSet.next()) {
+                        id = Integer.parseInt(resultSet.getString(1));
+                    }
+                    System.out.println(id + "******************************************************************");
+                }
+                catch (Exception e) {
+                    System.out.println(e);
                 }
 
             return info;

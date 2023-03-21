@@ -31,7 +31,7 @@ public class nxt_valasztas extends AppCompatActivity
     public void ujoldal(View view)
     {
         //elso_ellenorzes.nxt = spinner.getSelectedItem().toString();
-        new DB_iras().execute();
+        new NXT_iras().execute();
         Intent intent = new Intent(nxt_valasztas.this, elso_ellenorzes.class);
         intent.putExtra("Kuldo", spinner.getSelectedItem().toString() );
         startActivity(intent);
@@ -45,7 +45,7 @@ public class nxt_valasztas extends AppCompatActivity
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class DB_iras extends AsyncTask<Void, Void, Map<String, String>> {
+    public class NXT_iras extends AsyncTask<Void, Void, Map<String, String>> {
         @Override
         protected Map<String, String> doInBackground(Void... voids) {
             Map<String, String> info = new HashMap<>();
