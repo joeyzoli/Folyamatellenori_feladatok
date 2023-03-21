@@ -21,7 +21,7 @@ public class DB_iras
         {
             try
             {
-                Class.forName("com.mysql.cj.jdbc.Driver");								//Driver meghívása
+                Class.forName("com.mysql.cj.jdbc.Driver").newInstance();								//Driver meghívása
             }
             catch (Exception e)
             {
@@ -29,8 +29,7 @@ public class DB_iras
             }
             conn = DriverManager.getConnection("jdbc:mysql://172.20.22.29", "veasquality", "kg6T$kd14TWbs9&gd");							//kapcsolat létrehozása
             stmt = conn.createStatement();																									//csatlakozás
-            String query1 = "INSERT INTO Folyamatellenori_alap (Datum, Ellenor, Instruktor, Muvez) VALUES('" +
-                     datum + "', '"+ ellenor +"', '"+ instruktor +"', '"+ muvez +"')" ;		//String ami magát az SQL utasítást tartalmazza
+            String query1 = "INSERT INTO qualitydb.Folyamatellenori_alap (Datum, Ellenor, Instruktor, Muvez) VALUES('2023.03.21', 'Szilvi', 'Mitya', 'Joey')" ;		//String ami magát az SQL utasítást tartalmazza
             stmt.executeUpdate(query1);																													//sql utasítás végrehajtása
             System.out.println("Lefutott");
         }

@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_x="148dp"
         android:layout_y="515dp"
-        android:onClick="ujoldal2"
+        android:onClick="kezdooldal"
         android:text="@string/j_ellen_r" />
 
 
