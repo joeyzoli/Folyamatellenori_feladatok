@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Folyamatellenori_feladatok</string>
+    <string name="folyamatellen_r">Folyamatellenőr</string>
+    <string name="ellen_rz_s">Ellenőrzés</string>
+    <string name="gy_rt_sor">Gyártósor</string>
+    <string name="tov_bb">Tovább</string>
+    <string name="szem_lyi_esd_v_delem_ellen_rz_se_alkalmaz_sa_alkatr_sz_kezel_sn_l">Személyi ESD védelem ellenőrzése, alkalmazása alkatrész kezelésnél</string>
+    <string name="k_zleked_utak_munkahelyek_rendezetts_ge">Közlekedő utak, munkahelyek rendezettsége</string>
+    <string name="panelkezel_s_t_rol_s_megfelel_s_ge">Panelkezelés, tárolás megfelelősége</string>
+    <string name="jav_t_llom_s_forraszt_p_ka_h_m_rs_klet_ellen_rz_s">Javítóállomás forrasztópáka hőmérséklet ellenőrzés</string>
+    <string name="gy_rt_g_pek_karbantart_si_feljegyz_sei">Gyártógépek karbantartási feljegyzései</string>
+    <string name="el_t_raz_sok_egy_rtelm_azonos_t_sa">Előtárazások egyértelmű azonosítása</string>
+    <string name="felt_razott_nedvess_g_rz_keny_alkatr_szek_mintav_teles_ellen_rz_se">Feltárazott nedvességérzékeny alkatrészek mintavételes ellenőrzése</string>
+    <string name="npaszta_s_ragaszt_t_rol_h_t_k_ellen_rz_se_h_m_rs_klet_lej_rat_fifo">Ónpaszta és ragasztó tároló hűtők ellenőrzése (hőmérséklet, lejárat, FIFO)</string>
+    <string name="f_lk_sz_s_k_szterm_k_azonos_t_s_t_telk_s_r_lap_magazin_k_s_r_c_mke">Félkész- és késztermék azonosítás (tételkísérő lap magazin kísérő címke)</string>
+    <string name="textview">TextView</string>
+    <string name="j_ellen_r">Új ellenőr</string>
+    <string name="instruktor">Instruktor</string>
+    <string name="m_szakvezet">Műszakvezető</string>
+    <string name="start">Start</string>
+    <string name="d_tum">Dátum</string>
+
+
+    <string-array name="nxt_box_array">
+        <item>NXT1</item>
+        <item>NXT2</item>
+        <item>NXT3</item>
+        <item>NXT4</item>
+        <item>NXT5</item>
+        <item>NXT6</item>
+        <item>NXT7</item>
+        <item>NXT8</item>
+        <item>NXT9</item>
+        <item>NXT10</item>
+    </string-array>
+</resources>

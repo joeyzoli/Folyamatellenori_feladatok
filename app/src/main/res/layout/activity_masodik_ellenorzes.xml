@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".masodik_ellenorzes"
+    tools:showIn="@layout/activity_masodik_ellenorzes">
+    <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:context=".masodik_ellenorzes"
+        tools:ignore="Deprecated">
+
+        <TextView
+            android:id="@+id/nxt_mezo"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_x="158dp"
+            android:layout_y="23dp"
+            android:text="@string/textview"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="165dp"
+            tools:layout_editor_absoluteY="64dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="46dp"
+            android:layout_y="79dp"
+            android:text="Eddig ellenőrzött" />
+
+        <TextView
+            android:id="@+id/ell1"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_x="211dp"
+            android:layout_y="80dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/ell2"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_x="211dp"
+            android:layout_y="111dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/ell3"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_x="213dp"
+            android:layout_y="146dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/ell4"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_x="211dp"
+            android:layout_y="179dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/ell5"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_x="210dp"
+            android:layout_y="210dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="43dp"
+            android:layout_y="271dp"
+            android:text="Ellenőrizendő cikkszám" />
+
+        <EditText
+            android:id="@+id/cikkszam_mezo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="200dp"
+            android:layout_y="250dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:minHeight="48dp" />
+
+        <RadioButton
+            android:id="@+id/csekk2_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="8dp"
+            android:layout_y="323dp"
+            android:text="Műveleti utasítás (termék forgatókönyv) alkalmazása" />
+
+        <RadioButton
+            android:id="@+id/csekk2_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="6dp"
+            android:layout_y="374dp"
+            android:text="Panel és termék cikkszám, sorozatszám jelölés (pozíció, olvashatóság)" />
+
+        <RadioButton
+            android:id="@+id/csekk2_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="5dp"
+            android:layout_y="422dp"
+            android:text="Ónpaszta típus, lejárati idő, felbontási idő" />
+
+        <RadioButton
+            android:id="@+id/csekk2_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="8dp"
+            android:layout_y="469dp"
+            android:text="Ónpaszta pozícionálása, forrasztási pont kitöltése" />
+
+        <RadioButton
+            android:id="@+id/csekk2_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="9dp"
+            android:layout_y="510dp"
+            android:text="Ónpaszta vastagságmérés megfelelőség, dokumentálás" />
+
+        <RadioButton
+            android:id="@+id/csekk2_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="11dp"
+            android:layout_y="556dp"
+            android:text="Ragasztó típus, lejárati idő" />
+
+        <RadioButton
+            android:id="@+id/csekk2_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="9dp"
+            android:layout_y="601dp"
+            android:text="Ragasztó felhordás pozícionálása, mennyiség, forma" />
+
+        <RadioButton
+            android:id="@+id/csekk2_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="13dp"
+            android:layout_y="658dp"
+            android:text="Hőprofil érvényessége (aktualitás, jóváhagyás)" />
+
+        <RadioButton
+            android:id="@+id/csekk2_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="13dp"
+            android:layout_y="710dp"
+            android:text="Tárazás ellenőrzése (csak Amistar)" />
+
+        <RadioButton
+            android:id="@+id/csekk2_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="11dp"
+            android:layout_y="758dp"
+            android:text="Panel alátámasztás pozíciója a kemencében" />
+
+        <RadioButton
+            android:id="@+id/csekk2_11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="13dp"
+            android:layout_y="808dp"
+            android:text="N2 gáz alkalmazása forgatókönyv alapján" />
+
+        <RadioButton
+            android:id="@+id/csekk2_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="9dp"
+            android:layout_y="856dp"
+            android:text="Első darab ellenőrzés mintapanel vagy beültetési rajz alapján" />
+
+        <RadioButton
+            android:id="@+id/csekk2_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="13dp"
+            android:layout_y="910dp"
+            android:text="Ragasztott alkatrész csavarónyomaték mérés" />
+
+        <RadioButton
+            android:id="@+id/csekk2_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="15dp"
+            android:layout_y="962dp"
+            android:text="Tételkísérő lap és magazin kísérő címke alkalmazása" />
+
+        <Button
+            android:id="@+id/tovabb2_gomb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="237dp"
+            android:layout_y="1094dp"
+            android:text="Tovább" />
+
+        <Button
+            android:id="@+id/nxt_gomb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="41dp"
+            android:layout_y="1094dp"
+            android:onClick="nxt"
+            android:text="NXT választás" />
+
+
+    </AbsoluteLayout>
+</androidx.core.widget.NestedScrollView>

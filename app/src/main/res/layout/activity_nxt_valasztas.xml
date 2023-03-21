@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:ignore="Deprecated">
+
+    <Button
+        android:id="@+id/ellenorzes_gomb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="149dp"
+        android:layout_y="380dp"
+        android:onClick="ujoldal"
+        android:text="@string/ellen_rz_s" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="56dp"
+        android:layout_y="215dp"
+        android:text="@string/gy_rt_sor" />
+
+    <Spinner
+        android:id="@+id/nxt_box"
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/nxt_box_array"
+        android:layout_x="211dp"
+        android:layout_y="212dp" />
+
+    <Button
+        android:id="@+id/ujellenor_gomb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="148dp"
+        android:layout_y="515dp"
+        android:onClick="ujoldal2"
+        android:text="@string/j_ellen_r" />
+
+
+</AbsoluteLayout>

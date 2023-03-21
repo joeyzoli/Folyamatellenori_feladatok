@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_alignParentStart="true"
+    android:layout_height="1200dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<AbsoluteLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="visible"
+    tools:ignore="Deprecated">
+
+    <TextView
+        android:id="@+id/nxt_mezo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="163dp"
+        android:layout_y="35dp"
+        android:text="@string/textview"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <RadioButton
+        android:id="@+id/csekk1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="6dp"
+        android:layout_y="83dp"
+        android:minHeight="48dp"
+        android:text="@string/npaszta_s_ragaszt_t_rol_h_t_k_ellen_rz_se_h_m_rs_klet_lej_rat_fifo"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="136dp" />
+
+    <RadioButton
+        android:id="@+id/csekk2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="7dp"
+        android:layout_y="133dp"
+        android:text="@string/felt_razott_nedvess_g_rz_keny_alkatr_szek_mintav_teles_ellen_rz_se"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="184dp" />
+
+    <RadioButton
+        android:id="@+id/csekk3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="7dp"
+        android:layout_y="187dp"
+        android:text="@string/el_t_raz_sok_egy_rtelm_azonos_t_sa"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="232dp" />
+
+    <RadioButton
+        android:id="@+id/csekk4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="7dp"
+        android:layout_y="239dp"
+        android:text="@string/gy_rt_g_pek_karbantart_si_feljegyz_sei"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="280dp" />
+
+    <RadioButton
+        android:id="@+id/csekk5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="7dp"
+        android:layout_y="289dp"
+        android:text="@string/f_lk_sz_s_k_szterm_k_azonos_t_s_t_telk_s_r_lap_magazin_k_s_r_c_mke"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="328dp" />
+
+    <RadioButton
+        android:id="@+id/csekk6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="9dp"
+        android:layout_y="341dp"
+        android:text="@string/jav_t_llom_s_forraszt_p_ka_h_m_rs_klet_ellen_rz_s"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="376dp" />
+
+    <RadioButton
+        android:id="@+id/csekk7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="8dp"
+        android:layout_y="390dp"
+        android:text="@string/szem_lyi_esd_v_delem_ellen_rz_se_alkalmaz_sa_alkatr_sz_kezel_sn_l"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="424dp" />
+
+    <RadioButton
+        android:id="@+id/csekk8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="8dp"
+        android:layout_y="441dp"
+        android:text="@string/k_zleked_utak_munkahelyek_rendezetts_ge"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="472dp" />
+
+    <RadioButton
+        android:id="@+id/csekk9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="9dp"
+        android:layout_y="493dp"
+        android:text="@string/panelkezel_s_t_rol_s_megfelel_s_ge"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="520dp" />
+
+    <Button
+        android:id="@+id/tovabb_gomb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="237dp"
+        android:layout_y="560dp"
+        android:onClick="ujoldal"
+        android:text="@string/tov_bb"
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="663dp" />
+
+    <Button
+        android:id="@+id/nxt_gomb1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="41dp"
+        android:layout_y="561dp"
+        android:onClick="nxt"
+        android:text="NXT választás" />
+
+</AbsoluteLayout>
+</ScrollView>
