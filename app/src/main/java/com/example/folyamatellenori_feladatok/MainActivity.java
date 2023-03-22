@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity
     static final String USER = "veasquality";
     static final String PASSWORD = "kg6T$kd14TWbs9&gd";
     static int id;
+    static String Nev;
+    static String Datum;
     EditText datum;
     EditText ellenor;
     EditText instruktor;
@@ -61,7 +63,8 @@ public class MainActivity extends AppCompatActivity
             ellenor = findViewById(R.id.nev_mezo);
             instruktor = findViewById(R.id.instruktor_mezo);
             muvez = findViewById(R.id.muvez_mezo);
-
+            Nev = ellenor.getText().toString();
+            Datum = datum.getText().toString();
                 try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
                     String sql = "INSERT INTO qualitydb.Folyamatellenori_alap (Datum, Ellenor, Instruktor, Muvez) " +
                             "VALUES('"+ datum.getText().toString() +"', " +

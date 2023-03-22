@@ -135,7 +135,7 @@
         android:layout_x="41dp"
         android:layout_y="561dp"
         android:onClick="nxt"
-        android:text="NXT választás" />
+        android:text="@string/nxt_v_laszt_s2" />
 
 </AbsoluteLayout>
 </androidx.core.widget.NestedScrollView>

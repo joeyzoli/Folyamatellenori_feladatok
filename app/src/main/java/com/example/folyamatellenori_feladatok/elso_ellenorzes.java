@@ -39,7 +39,7 @@ public class elso_ellenorzes extends AppCompatActivity
     public void ujoldal(View view)
     {
         new Csekk1().execute();
-        Intent intent = new Intent(elso_ellenorzes.this, masodik_ellenorzes.class);
+        Intent intent = new Intent(elso_ellenorzes.this, Cikk_valaszto.class);
         intent.putExtra("Kuldo", nxt_mezo.getText().toString() );
         startActivity(intent);
     }

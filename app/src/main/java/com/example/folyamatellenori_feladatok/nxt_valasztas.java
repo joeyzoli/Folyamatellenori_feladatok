@@ -65,4 +65,25 @@ public class nxt_valasztas extends AppCompatActivity
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
+    public class Melyik_oldal extends AsyncTask<Void, Void, Map<String, String>> {
+        @Override
+        protected Map<String, String> doInBackground(Void... voids) {
+            Map<String, String> info = new HashMap<>();
+
+
+            try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
+                String sql = "select id from qualitydb.Folyamatellenori_alap where Ellenor = '"+ MainActivity.Nev +"' and " +
+                        "Datum = '"+ MainActivity.Datum +"' and NXT = '"+ spinner.getSelectedItem().toString() +"'"  ;
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.execute();
+
+            } catch (Exception e) {
+                Log.e("DB_iras", "Error reading school information", e);
+            }
+
+            return info;
+        }
+    }
+
 }

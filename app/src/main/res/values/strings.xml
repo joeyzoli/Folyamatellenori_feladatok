@@ -19,6 +19,28 @@
     <string name="m_szakvezet">Műszakvezető</string>
     <string name="start">Start</string>
     <string name="d_tum">Dátum</string>
+    <string name="m_veleti_utas_t_s_term_k_forgat_k_nyv_alkalmaz_sa">Műveleti utasítás (termék forgatókönyv) alkalmazása</string>
+    <string name="t_raz_s_ellen_rz_se_csak_amistar">Tárazás ellenőrzése (csak Amistar)</string>
+    <string name="h_profil_rv_nyess_ge_aktualit_s_j_v_hagy_s">Hőprofil érvényessége (aktualitás, jóváhagyás)</string>
+    <string name="ragaszt_felhord_s_poz_cion_l_sa_mennyis_g_forma">Ragasztó felhordás pozícionálása, mennyiség, forma</string>
+    <string name="ragaszt_t_pus_lej_rati_id">Ragasztó típus, lejárati idő</string>
+    <string name="npaszta_vastags_gm_r_s_megfelel_s_g_dokument_l_s">Ónpaszta vastagságmérés megfelelőség, dokumentálás</string>
+    <string name="npaszta_t_pus_lej_rati_id_felbont_si_id">Ónpaszta típus, lejárati idő, felbontási idő</string>
+    <string name="npaszta_poz_cion_l_sa_forraszt_si_pont_kit_lt_se">Ónpaszta pozícionálása, forrasztási pont kitöltése</string>
+    <string name="panel_s_term_k_cikksz_m_sorozatsz_m_jel_l_s_poz_ci_olvashat_s_g">Panel és termék cikkszám, sorozatszám jelölés (pozíció, olvashatóság)</string>
+    <string name="cikksz_m">Cikkszám</string>
+    <string name="panel_al_t_maszt_s_poz_ci_ja_a_kemenc_ben">Panel alátámasztás pozíciója a kemencében</string>
+    <string name="n2_g_z_alkalmaz_sa_forgat_k_nyv_alapj_n">N2 gáz alkalmazása forgatókönyv alapján</string>
+    <string name="els_darab_ellen_rz_s_mintapanel_vagy_be_ltet_si_rajz_alapj_n">Első darab ellenőrzés mintapanel vagy beültetési rajz alapján</string>
+    <string name="ragasztott_alkatr_sz_csavar_nyomat_k_m_r_s">Ragasztott alkatrész csavarónyomaték mérés</string>
+    <string name="t_telk_s_r_lap_s_magazin_k_s_r_c_mke_alkalmaz_sa">Tételkísérő lap és magazin kísérő címke alkalmazása</string>
+    <string name="nxt_v_laszt_s">NXT választás</string>
+    <string name="tov_bb2">Tovább</string>
+    <string name="nxt_v_laszt_s2">NXT választás</string>
+    <string name="cikksz_m_megad_sa">Cikkszám megadása:</string>
+    <string name="cikksz_m_v_laszt_sa">Cikkszám választása</string>
+    <string name="kezd_s">Kezdés</string>
+    <string name="folytat_s">Folytatás</string>
 
 
     <string-array name="nxt_box_array">
