@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,44 +26,18 @@ public class nxt_valasztas extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nxt_valasztas);
-        spinner = (Spinner)findViewById(R.id.nxt_box);
+        spinner = findViewById(R.id.nxt_box);
     }
 
     public void ujoldal(View view)
     {
-        //elso_ellenorzes.nxt = spinner.getSelectedItem().toString();
-        new NXT_iras().execute();
-        Intent intent = new Intent(nxt_valasztas.this, elso_ellenorzes.class);
-        intent.putExtra("Kuldo", spinner.getSelectedItem().toString() );
-        startActivity(intent);
+        new Melyik_oldal().execute();
     }
 
     public void kezdooldal(View view)
     {
-        //elso_ellenorzes.nxt = spinner.getSelectedItem().toString();
         Intent intent = new Intent(nxt_valasztas.this, MainActivity.class);
         startActivity(intent);
-    }
-
-    @SuppressLint("StaticFieldLeak")
-    public class NXT_iras extends AsyncTask<Void, Void, Map<String, String>> {
-        @Override
-        protected Map<String, String> doInBackground(Void... voids) {
-            Map<String, String> info = new HashMap<>();
-
-
-            try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
-                String sql = "UPDATE qualitydb.Folyamatellenori_alap set NXT ='"+ spinner.getSelectedItem().toString()
-                        +"' where id = '"+ MainActivity.id +"'" ;
-                PreparedStatement statement = connection.prepareStatement(sql);
-                statement.executeUpdate();
-
-            } catch (Exception e) {
-                Log.e("DB_iras", "Error reading school information", e);
-            }
-
-            return info;
-        }
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -71,15 +46,40 @@ public class nxt_valasztas extends AppCompatActivity
         protected Map<String, String> doInBackground(Void... voids) {
             Map<String, String> info = new HashMap<>();
 
-
+            spinner = findViewById(R.id.nxt_box);
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
-                String sql = "select id from qualitydb.Folyamatellenori_alap where Ellenor = '"+ MainActivity.Nev +"' and " +
+                String sql = "select * from qualitydb.Folyamatellenori_alap where Ellenor = '"+ MainActivity.Nev +"' and " +
                         "Datum = '"+ MainActivity.Datum +"' and NXT = '"+ spinner.getSelectedItem().toString() +"'"  ;
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
+                ResultSet resultSet = statement.getResultSet();
+                if(resultSet.next())
+                {
+                    Intent intent = new Intent(nxt_valasztas.this, Cikk_valaszto.class);
+                    intent.putExtra("Kuldo", spinner.getSelectedItem().toString() );
+                    startActivity(intent);
+                }
+                else
+                {
+                    try (Connection connection2 = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
+                        String sql2 = "INSERT INTO qualitydb.Folyamatellenori_alap (Datum, Ellenor, Instruktor, Muvez, NXT) " +
+                                "VALUES('"+ MainActivity.Datum +"', " +
+                                "'"+ MainActivity.Nev +
+                                "', '"+ MainActivity.Instruktor +
+                                "', '"+ MainActivity.Muvez +
+                                "', '"+ spinner.getSelectedItem().toString() +"' )";
+                        PreparedStatement statement2 = connection2.prepareStatement(sql2);
+                        statement2.executeUpdate();
+                    Intent intent = new Intent(nxt_valasztas.this, elso_ellenorzes.class);
+                    intent.putExtra("Kuldo", spinner.getSelectedItem().toString() );
+                    startActivity(intent);
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
 
-            } catch (Exception e) {
-                Log.e("DB_iras", "Error reading school information", e);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
 
             return info;

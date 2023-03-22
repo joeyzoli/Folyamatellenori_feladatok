@@ -36,7 +36,6 @@ public class masodik_ellenorzes extends AppCompatActivity
 
     public void nxt(View view)
     {
-        //elso_ellenorzes.nxt = spinner.getSelectedItem().toString();
         Intent intent = new Intent(masodik_ellenorzes.this, nxt_valasztas.class);
         startActivity(intent);
     }

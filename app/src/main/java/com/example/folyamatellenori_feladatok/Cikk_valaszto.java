@@ -48,6 +48,12 @@ public class Cikk_valaszto extends AppCompatActivity
         startActivity(intent);
     }
 
+    public void ujoldal_folytatas(View view)
+    {
+        Intent intent = new Intent(Cikk_valaszto.this, Cikk_ellenorzes.class);
+        startActivity(intent);
+    }
+
     private void melyik_nxt()
     {
         valasztott_nxt.clear();

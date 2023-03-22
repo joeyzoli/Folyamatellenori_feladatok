@@ -16,6 +16,13 @@
         android:theme="@style/Theme.Folyamatellenori_feladatok"
         tools:targetApi="31">
         <activity
+            android:name=".Cikk_ellenorzes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Cikk_valaszto"
             android:exported="false">
             <meta-data
