@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".masodik_ellenorzes"
-    tools:showIn="@layout/activity_masodik_ellenorzes">
+    tools:context=".Cikk_ellenorzes"
+    tools:showIn="@layout/activity_cikk_ellenorzes">
+
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
