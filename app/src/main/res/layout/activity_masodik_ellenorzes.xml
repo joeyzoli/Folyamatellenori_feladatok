@@ -27,148 +27,149 @@
             tools:layout_editor_absoluteX="165dp"
             tools:layout_editor_absoluteY="64dp" />
 
-    <RadioButton
-        android:id="@+id/csekk2_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="15dp"
-        android:layout_y="213dp"
-        android:text="@string/m_veleti_utas_t_s_term_k_forgat_k_nyv_alkalmaz_sa" />
+        <RadioButton
+            android:id="@+id/csekk2_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="15dp"
+            android:layout_y="213dp"
+            android:text="@string/m_veleti_utas_t_s_term_k_forgat_k_nyv_alkalmaz_sa" />
 
-    <RadioButton
-        android:id="@+id/csekk2_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="15dp"
-        android:layout_y="263dp"
-        android:text="@string/panel_s_term_k_cikksz_m_sorozatsz_m_jel_l_s_poz_ci_olvashat_s_g" />
+        <RadioButton
+            android:id="@+id/csekk2_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="15dp"
+            android:layout_y="263dp"
+            android:text="@string/panel_s_term_k_cikksz_m_sorozatsz_m_jel_l_s_poz_ci_olvashat_s_g" />
 
-    <RadioButton
-        android:id="@+id/csekk2_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="16dp"
-        android:layout_y="315dp"
-        android:text="@string/npaszta_t_pus_lej_rati_id_felbont_si_id" />
+        <RadioButton
+            android:id="@+id/csekk2_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="16dp"
+            android:layout_y="315dp"
+            android:text="@string/npaszta_t_pus_lej_rati_id_felbont_si_id" />
 
-    <RadioButton
-        android:id="@+id/csekk2_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="16dp"
-        android:layout_y="365dp"
-        android:text="@string/npaszta_poz_cion_l_sa_forraszt_si_pont_kit_lt_se" />
+        <RadioButton
+            android:id="@+id/csekk2_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="16dp"
+            android:layout_y="365dp"
+            android:text="@string/npaszta_poz_cion_l_sa_forraszt_si_pont_kit_lt_se" />
 
-    <RadioButton
-        android:id="@+id/csekk2_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="16dp"
-        android:layout_y="414dp"
-        android:text="@string/npaszta_vastags_gm_r_s_megfelel_s_g_dokument_l_s" />
+        <RadioButton
+            android:id="@+id/csekk2_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="16dp"
+            android:layout_y="414dp"
+            android:text="@string/npaszta_vastags_gm_r_s_megfelel_s_g_dokument_l_s" />
 
-    <RadioButton
-        android:id="@+id/csekk2_6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="16dp"
-        android:layout_y="465dp"
-        android:text="@string/ragaszt_t_pus_lej_rati_id" />
+        <RadioButton
+            android:id="@+id/csekk2_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="16dp"
+            android:layout_y="465dp"
+            android:text="@string/ragaszt_t_pus_lej_rati_id" />
 
-    <RadioButton
-        android:id="@+id/csekk2_7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="15dp"
-        android:layout_y="516dp"
-        android:text="@string/ragaszt_felhord_s_poz_cion_l_sa_mennyis_g_forma" />
+        <RadioButton
+            android:id="@+id/csekk2_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="15dp"
+            android:layout_y="516dp"
+            android:text="@string/ragaszt_felhord_s_poz_cion_l_sa_mennyis_g_forma" />
 
-    <RadioButton
-        android:id="@+id/csekk2_8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="15dp"
-        android:layout_y="567dp"
-        android:text="@string/h_profil_rv_nyess_ge_aktualit_s_j_v_hagy_s" />
+        <RadioButton
+            android:id="@+id/csekk2_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="15dp"
+            android:layout_y="567dp"
+            android:text="@string/h_profil_rv_nyess_ge_aktualit_s_j_v_hagy_s" />
 
-    <RadioButton
-        android:id="@+id/csekk2_9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="14dp"
-        android:layout_y="618dp"
-        android:text="@string/t_raz_s_ellen_rz_se_csak_amistar" />
+        <RadioButton
+            android:id="@+id/csekk2_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="14dp"
+            android:layout_y="618dp"
+            android:text="@string/t_raz_s_ellen_rz_se_csak_amistar" />
 
-    <RadioButton
-        android:id="@+id/csekk2_10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="13dp"
-        android:layout_y="670dp"
-        android:text="@string/panel_al_t_maszt_s_poz_ci_ja_a_kemenc_ben" />
+        <RadioButton
+            android:id="@+id/csekk2_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="13dp"
+            android:layout_y="670dp"
+            android:text="@string/panel_al_t_maszt_s_poz_ci_ja_a_kemenc_ben" />
 
-    <RadioButton
-        android:id="@+id/csekk2_11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="11dp"
-        android:layout_y="721dp"
-        android:text="@string/n2_g_z_alkalmaz_sa_forgat_k_nyv_alapj_n" />
+        <RadioButton
+            android:id="@+id/csekk2_11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="11dp"
+            android:layout_y="721dp"
+            android:text="@string/n2_g_z_alkalmaz_sa_forgat_k_nyv_alapj_n" />
 
-    <RadioButton
-        android:id="@+id/csekk2_12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="10dp"
-        android:layout_y="772dp"
-        android:text="@string/els_darab_ellen_rz_s_mintapanel_vagy_be_ltet_si_rajz_alapj_n" />
+        <RadioButton
+            android:id="@+id/csekk2_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="10dp"
+            android:layout_y="772dp"
+            android:text="@string/els_darab_ellen_rz_s_mintapanel_vagy_be_ltet_si_rajz_alapj_n" />
 
-    <RadioButton
-        android:id="@+id/csekk2_13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="9dp"
-        android:layout_y="823dp"
-        android:text="@string/ragasztott_alkatr_sz_csavar_nyomat_k_m_r_s" />
+        <RadioButton
+            android:id="@+id/csekk2_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="9dp"
+            android:layout_y="823dp"
+            android:text="@string/ragasztott_alkatr_sz_csavar_nyomat_k_m_r_s" />
 
-    <RadioButton
-        android:id="@+id/csekk2_14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="9dp"
-        android:layout_y="872dp"
-        android:text="@string/t_telk_s_r_lap_s_magazin_k_s_r_c_mke_alkalmaz_sa" />
+        <RadioButton
+            android:id="@+id/csekk2_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="9dp"
+            android:layout_y="872dp"
+            android:text="@string/t_telk_s_r_lap_s_magazin_k_s_r_c_mke_alkalmaz_sa" />
 
-    <Button
-        android:id="@+id/tovabb2_gomb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="226dp"
-        android:layout_y="982dp"
-        android:text="@string/tov_bb2" />
+        <Button
+            android:id="@+id/tovabb2_gomb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ujoldal_cikk"
+            android:layout_x="226dp"
+            android:layout_y="982dp"
+            android:text="@string/tov_bb2" />
 
-    <Button
-        android:id="@+id/nxt_gomb2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="37dp"
-        android:layout_y="980dp"
-        android:onClick="nxt"
-        android:text="@string/nxt_v_laszt_s" />
+        <Button
+            android:id="@+id/nxt_gomb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="37dp"
+            android:layout_y="980dp"
+            android:onClick="nxt"
+            android:text="@string/nxt_v_laszt_s" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="64dp"
-        android:layout_y="120dp"
-        android:text="@string/cikksz_m" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="64dp"
+            android:layout_y="120dp"
+            android:text="@string/cikksz_m" />
 
     <TextView
         android:id="@+id/cikkszam_mezo"
-        android:layout_width="213dp"
+        android:layout_width="258dp"
         android:layout_height="wrap_content"
-        android:layout_x="194dp"
+        android:layout_x="148dp"
         android:layout_y="121dp" />
 
 

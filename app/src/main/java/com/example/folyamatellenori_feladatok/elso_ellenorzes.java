@@ -46,7 +46,7 @@ public class elso_ellenorzes extends AppCompatActivity
 
     public void nxt(View view)
     {
-        //elso_ellenorzes.nxt = spinner.getSelectedItem().toString();
+        new Csekk1().execute();
         Intent intent = new Intent(elso_ellenorzes.this, nxt_valasztas.class);
         startActivity(intent);
     }

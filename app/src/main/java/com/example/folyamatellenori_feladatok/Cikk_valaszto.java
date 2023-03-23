@@ -45,12 +45,14 @@ public class Cikk_valaszto extends AppCompatActivity
         nxt.add(kontener);
         Intent intent = new Intent(Cikk_valaszto.this, masodik_ellenorzes.class);
         intent.putExtra("Kuldo", nxt_mezo3.getText().toString() );
+        intent.putExtra("Cikkszam", ujcikk.getText().toString() );
         startActivity(intent);
     }
 
     public void ujoldal_folytatas(View view)
     {
         Intent intent = new Intent(Cikk_valaszto.this, Cikk_ellenorzes.class);
+        intent.putExtra("Cikkszam", spinner.getSelectedItem().toString() );
         startActivity(intent);
     }
 
