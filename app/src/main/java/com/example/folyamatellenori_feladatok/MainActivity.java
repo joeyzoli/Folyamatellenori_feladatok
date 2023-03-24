@@ -4,25 +4,39 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import jcifs.smb.SmbFile;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -40,6 +54,14 @@ public class MainActivity extends AppCompatActivity
     EditText muvez;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd");
     Date date = new Date();
+    static ArrayList<String[]> muszak = new ArrayList<>();
+    ArrayList<String> ellenorok = new ArrayList<>();
+    String[] de = {"6:00-6:30","6:30-7:00","7:00-7:30","7:30-8:00","8:00-8:30","8:30-9:00","9:00-9:30","9:30-10:00","10:00-10:30","10:30-11:00","11:00-11:30","11:30-12:00","12:00-12:30","12:30-13:00","13:00-13:30","13:30-14:00"};
+    String[] du = {"14:00-14:30","14:30-15:00","15:00-15:30","15:30-16:00","16:00-16:30","16:30-17:00","17:00-17:30","17:30-18:00","18:00-18:30","18:30-19:00","19:00-19:30","19:30-20:00","20:00-20:30","20:30-21:00","21:00-21:30","21:30-22:00"};
+    String[] ej = {"22:00-22:30","22:30-23:00","23:00-23:30","23:30-0:00","0:00-0:30","0:30-1:00","1:00-1:30","1:30-2:00","2:00-2:30","2:30-3:00","3:00-3:30","3:30-4:00","4:00-4:30","4:30-5:00","5:00-5:30","5:30-6:00"};
+    CheckBox De;
+    CheckBox Du;
+    CheckBox Ej;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -51,6 +73,7 @@ public class MainActivity extends AppCompatActivity
 
     public void ujoldal(View view)
     {
+        muszak();
         datum = findViewById(R.id.datum_mezo);
         ellenor = findViewById(R.id.nev_mezo);
         instruktor = findViewById(R.id.instruktor_mezo);
@@ -62,4 +85,44 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(MainActivity.this, nxt_valasztas.class);
         startActivity(intent);
     }
+
+    private void muszak()
+    {
+        muszak.clear();
+        De = findViewById(R.id.csekk_de);
+        Du = findViewById(R.id.csekk_du);
+        Ej = findViewById(R.id.csekk_ej);
+        if(De.isChecked()){
+            muszak.add(de);
+        }
+        if (Du.isChecked()){
+            muszak.add(du);
+        }
+        if(Ej.isChecked()){
+            muszak.add(ej);
+        }
+    }
+
+    private void Excel_beolvas(){
+        try {
+            jcifs.Config.registerSmbURLHandler();
+            SmbFile fajl = new SmbFile("smb://10.1.0.11/minosegbiztositas/Fájlok/Folyamatellenőrök/Ellenőrök.csv");
+            System.out.println(fajl.exists());
+            FileInputStream file = new FileInputStream(String.valueOf(new SmbFile("smb://10.1.0.11/minosegbiztositas/Fájlok/Folyamatellenőrök/Ellenőrök.csv")));
+            InputStreamReader inputStreamReader = new InputStreamReader(file);
+            BufferedReader br = new BufferedReader(inputStreamReader);
+            String line;
+            while ((line = br.readLine()) != null) {
+                ellenorok.add(line);
+
+            }
+            System.out.println("Sikerült, lefutott*********************************************");
+        }
+        catch (Exception e) {
+            System.out.println("Hiba történt!!************************************");
+            e.printStackTrace();
+        }
+
+    }
+
 }

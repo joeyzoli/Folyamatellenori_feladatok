@@ -84,8 +84,8 @@
         android:id="@+id/ellenorzes_gomb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="144dp"
-        android:layout_y="560dp"
+        android:layout_x="141dp"
+        android:layout_y="595dp"
         android:onClick="ujoldal"
         android:text="@string/start" />
 
@@ -108,6 +108,38 @@
         android:inputType="textMultiLine"
         android:minHeight="48dp"
         tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="76dp"
+        android:layout_y="459dp"
+        android:text="Műszak" />
+
+    <CheckBox
+        android:id="@+id/csekk_de"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="162dp"
+        android:layout_y="446dp"
+        android:text="De" />
+
+    <CheckBox
+        android:id="@+id/csekk_du"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="241dp"
+        android:layout_y="446dp"
+        android:text="Du" />
+
+    <CheckBox
+        android:id="@+id/csekk_ej"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="317dp"
+        android:layout_y="445dp"
+        android:text="Éj" />
 
 </AbsoluteLayout>
 </androidx.core.widget.NestedScrollView>
