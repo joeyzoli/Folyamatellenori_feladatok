@@ -89,10 +89,10 @@ public class elso_ellenorzes extends AppCompatActivity
                 csek9 = "igen";
             }
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
-                String sql = "UPDATE qualitydb.Folyamatellenori_alap set Csekk1 ='"+ csek1 +
-                        "', Csekk2 ='"+ csek2 +"', Csekk3 ='"+ csek3 +"', Csekk4 ='"+ csek4 +"', Csekk5 ='"+ csek5 +
-                        "', Csekk6 ='"+ csek6 +"', Csekk7 ='"+ csek7 +"', Csekk8 ='"+ csek8 +"', Csekk9 ='"+ csek9 +
-                        "' where id = '"+ MainActivity.id +"'" ;
+                String sql = "UPDATE qualitydb.Folyamatellenori_alap set Csekk1 = '"+ csek1 +
+                        "', Csekk2 = '"+ csek2 +"', Csekk3 = '"+ csek3 +"', Csekk4 = '"+ csek4 +"', Csekk5 = '"+ csek5 +
+                        "', Csekk6 = '"+ csek6 +"', Csekk7 = '"+ csek7 +"', Csekk8 = '"+ csek8 +"', Csekk9 = '"+ csek9 +
+                        "' where Ellenor = '"+ MainActivity.Nev +"' and NXT = '"+ nxt_mezo.getText().toString() +"' and Datum = '"+ MainActivity.Datum +"'" ;
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.executeUpdate();
             }

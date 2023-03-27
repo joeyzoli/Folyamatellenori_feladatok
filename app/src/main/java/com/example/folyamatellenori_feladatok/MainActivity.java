@@ -1,46 +1,26 @@
 package com.example.folyamatellenori_feladatok;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-import jcifs.smb.SmbFile;
+//import jcifs.smb.SmbFile;
 
 public class MainActivity extends AppCompatActivity
 {
-    static final String URL = "jdbc:mysql://172.20.22.29";
+    static final String URL = "jdbc:mysql://172.20.22.29?autoReconnect=true&useSSL=false";
     static final String USER = "veasquality";
     static final String PASSWORD = "kg6T$kd14TWbs9&gd";
     static int id;
@@ -105,8 +85,9 @@ public class MainActivity extends AppCompatActivity
 
     private void Excel_beolvas(){
         try {
+            /*
             jcifs.Config.registerSmbURLHandler();
-            SmbFile fajl = new SmbFile("smb://10.1.0.11/minosegbiztositas/Fájlok/Folyamatellenőrök/Ellenőrök.csv");
+            //SmbFile fajl = new SmbFile("smb://10.1.0.11/minosegbiztositas/Fájlok/Folyamatellenőrök/Ellenőrök.csv");
             System.out.println(fajl.exists());
             FileInputStream file = new FileInputStream(String.valueOf(new SmbFile("smb://10.1.0.11/minosegbiztositas/Fájlok/Folyamatellenőrök/Ellenőrök.csv")));
             InputStreamReader inputStreamReader = new InputStreamReader(file);
@@ -116,7 +97,7 @@ public class MainActivity extends AppCompatActivity
                 ellenorok.add(line);
 
             }
-            System.out.println("Sikerült, lefutott*********************************************");
+            System.out.println("Sikerült, lefutott*********************************************");*/
         }
         catch (Exception e) {
             System.out.println("Hiba történt!!************************************");

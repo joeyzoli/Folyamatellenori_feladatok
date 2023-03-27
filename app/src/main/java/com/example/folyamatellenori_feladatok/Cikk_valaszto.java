@@ -51,7 +51,8 @@ public class Cikk_valaszto extends AppCompatActivity
 
     public void ujoldal_folytatas(View view)
     {
-        Intent intent = new Intent(Cikk_valaszto.this, Cikk_ellenorzes.class);
+        Intent intent = new Intent(Cikk_valaszto.this, masodik_ellenorzes.class);
+        intent.putExtra("Kuldo", nxt_mezo3.getText().toString() );
         intent.putExtra("Cikkszam", spinner.getSelectedItem().toString() );
         startActivity(intent);
     }
