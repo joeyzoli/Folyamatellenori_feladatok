@@ -96,6 +96,8 @@ public class Cikk_ellenorzes extends AppCompatActivity
                     PreparedStatement statement = connection.prepareStatement(sql);
                     statement.executeUpdate();
                 }
+
+
             } catch (Exception e) {
                 System.out.println(e);
             }
