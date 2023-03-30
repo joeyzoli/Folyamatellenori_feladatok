@@ -5,278 +5,280 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Cikk_ellenorzes"
-    tools:showIn="@layout/activity_cikk_ellenorzes">
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    tools:context=".masodik_ellenorzes"
+    tools:showIn="@layout/activity_masodik_ellenorzes">
 
-    <TableRow
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/masodik_ell"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:id="@+id/nxt_mezo"
+                android:layout_width="wrap_content"
+                android:text="@string/textview"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="165dp"
+                tools:layout_editor_absoluteY="64dp" />
+
         <TextView
-            android:id="@+id/nxt_mezo"
-            android:layout_width="wrap_content"
-            android:text="@string/textview"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="165dp"
-            tools:layout_editor_absoluteY="64dp" />
-
-    <TextView
-        android:id="@+id/cikkszam_mezo"
-        android:layout_height="wrap_content"
-        />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
-        <TextView android:text="Műveleti utasítás (termék forgatókönyv) alkalmazása" />
-
-        <EditText
-            android:id="@+id/csekk2_1"
-            android:layout_width="wrap_content"
+            android:id="@+id/cikkszam_mezo"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            tools:ignore="TouchTargetSizeCheck" />
+            />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView android:text="Műveleti utasítás (termék forgatókönyv) alkalmazása" />
+
+            <EditText
+                android:id="@+id/csekk2_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                tools:ignore="TouchTargetSizeCheck" />
 
 
-    </TableRow>
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Panel és termék cikkszám, sorozatszám jelölés (pozíció, olvashatóság)" />
+            <TextView android:text="Panel és termék cikkszám, sorozatszám jelölés (pozíció, olvashatóság)" />
 
-        <EditText
-            android:id="@+id/csekk2_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            tools:ignore="TouchTargetSizeCheck" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                tools:ignore="TouchTargetSizeCheck" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Ónpaszta típus, lejárati idő, felbontási idő" />
+            <TextView android:text="Ónpaszta típus, lejárati idő, felbontási idő" />
 
-        <EditText
-            android:id="@+id/csekk2_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Ónpaszta pozícionálása, forrasztási pont kitöltése" />
+            <TextView android:text="Ónpaszta pozícionálása, forrasztási pont kitöltése" />
 
-        <EditText
-            android:id="@+id/csekk2_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Ónpaszta vastagságmérés megfelelőség, dokumentálás" />
+            <TextView android:text="Ónpaszta vastagságmérés megfelelőség, dokumentálás" />
 
-        <EditText
-            android:id="@+id/csekk2_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            tools:ignore="TouchTargetSizeCheck" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                tools:ignore="TouchTargetSizeCheck" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Ragasztó típus, lejárati idő" />
+            <TextView android:text="Ragasztó típus, lejárati idő" />
 
-        <EditText
-            android:id="@+id/csekk2_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Ragasztó felhordás pozícionálása, mennyiség" />
+            <TextView android:text="Ragasztó felhordás pozícionálása, mennyiség" />
 
-        <EditText
-            android:id="@+id/csekk2_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Hőprofil érvényessége (aktualitás, jóváhagyás)" />
+            <TextView android:text="Hőprofil érvényessége (aktualitás, jóváhagyás)" />
 
-        <EditText
-            android:id="@+id/csekk2_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Tárazás ellenőrzése (csak Amistar)" />
+            <TextView android:text="Tárazás ellenőrzése (csak Amistar)" />
 
-        <EditText
-            android:id="@+id/csekk2_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Panel alátámasztás pozíciója a kemencében" />
+            <TextView android:text="Panel alátámasztás pozíciója a kemencében" />
 
-        <EditText
-            android:id="@+id/csekk2_10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="N2 gáz alkalmazása forgatókönyv alapján" />
+            <TextView android:text="N2 gáz alkalmazása forgatókönyv alapján" />
 
-        <EditText
-            android:id="@+id/csekk2_11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Első darab ellenőrzés mintapanel vagy beültetési rajz alapján" />
+            <TextView android:text="Első darab ellenőrzés mintapanel vagy beültetési rajz alapján" />
 
-        <EditText
-            android:id="@+id/csekk2_12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Ragasztott alkatrész csavarónyomaték mérés" />
+            <TextView android:text="Ragasztott alkatrész csavarónyomaték mérés" />
 
-        <EditText
-            android:id="@+id/csekk2_13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
+            <EditText
+                android:id="@+id/csekk2_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Tételkísérő lap és magazin kísérő címke alkalmazása" />
+            <TextView android:text="Tételkísérő lap és magazin kísérő címke alkalmazása" />
 
-        <EditText
-            android:id="@+id/csekk2_14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+            <EditText
+                android:id="@+id/csekk2_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView android:text="Megjegyzés" />
+            <TextView android:text="Megjegyzés" />
 
-        <EditText
-            android:id="@+id/megjegyzes_mezo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
-    </TableRow>
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+            <EditText
+                android:id="@+id/megjegyzes_mezo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+        </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <Button
-            android:id="@+id/nxt_gomb2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="nxt"
-            android:text="@string/nxt_v_laszt_s" />
-        <Button
-            android:id="@+id/tovabb2_gomb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="ujoldal_cikk"
-            android:text="@string/tov_bb2" />
-
-
-    </TableRow>
+            <Button
+                android:id="@+id/nxt_gomb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="nxt"
+                android:text="@string/nxt_v_laszt_s" />
+            <Button
+                android:id="@+id/tovabb2_gomb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="ujoldal_cikk"
+                android:text="@string/tov_bb2" />
 
 
-</TableLayout>
+        </TableRow>
+
+
+    </TableLayout>
 </androidx.core.widget.NestedScrollView>

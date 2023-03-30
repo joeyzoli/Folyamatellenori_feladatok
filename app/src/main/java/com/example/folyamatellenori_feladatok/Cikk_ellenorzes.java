@@ -27,19 +27,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
     TextView cikkszam;
     TextView idoo1;TextView idoo2;TextView idoo3;TextView idoo4;TextView idoo5;TextView idoo6;TextView idoo7;TextView idoo8;TextView idoo9;TextView idoo10;TextView idoo11;TextView idoo12;
     TextView idoo13;TextView idoo14;TextView idoo15;TextView idoo16;
-    EditText cikk1;EditText cikk2;EditText cikk3;EditText cikk4;EditText cikk5;EditText cikk6;EditText cikk7;EditText cikk8;EditText cikk9;EditText cikk10;EditText cikk11;EditText cikk12;
-    EditText cikk13;EditText cikk14;EditText cikk15;EditText cikk16;
-    EditText batch1;EditText batch2;EditText batch3;EditText batch4;EditText batch5;EditText batch6;EditText batch7;EditText batch8;EditText batch9;EditText batch10;EditText batch11;EditText batch12;
-    EditText batch13;EditText batch14;EditText batch15;EditText batch16;
-    EditText vizsgalt1;EditText vizsgalt2;EditText vizsgalt3;EditText vizsgalt4;EditText vizsgalt5;EditText vizsgalt6;EditText vizsgalt7;EditText vizsgalt8;EditText vizsgalt9;EditText vizsgalt10;EditText vizsgalt11;EditText vizsgalt12;
-    EditText vizsgalt13;EditText vizsgalt14;EditText vizsgalt15;EditText vizsgalt16;
-    EditText hiba1;EditText hiba2;EditText hiba3;EditText hiba4;EditText hiba5;EditText hiba6;EditText hiba7;EditText hiba8;EditText hiba9;EditText hiba10;EditText hiba11;EditText hiba12;
-    EditText hiba13;EditText hiba14;EditText hiba15;EditText hiba16;
-    EditText arany1;EditText arany2;EditText arany3;EditText arany4;EditText arany5;EditText arany6;EditText arany7;EditText arany8;EditText arany9;EditText arany10;EditText arany11;EditText arany12;
-    EditText arany13;EditText arany14;EditText arany15;EditText arany16;
-    CheckBox ref1;CheckBox ref2;CheckBox ref3;CheckBox ref4;CheckBox ref5;CheckBox ref6;CheckBox ref7;CheckBox ref8;CheckBox ref9;CheckBox ref10;CheckBox ref11;CheckBox ref12;CheckBox ref13;CheckBox ref14;CheckBox ref15;CheckBox ref16;
-    CheckBox smd1;CheckBox smd2;CheckBox smd3;CheckBox smd4;CheckBox smd5;CheckBox smd6;CheckBox smd7;CheckBox smd8;CheckBox smd9;CheckBox smd10;CheckBox smd11;CheckBox smd12;CheckBox smd13;CheckBox smd14;CheckBox smd15;CheckBox smd16;
-
+    static int letezik;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +82,14 @@ public class Cikk_ellenorzes extends AppCompatActivity
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
                 TableLayout jtable = (TableLayout) findViewById(R.id.tabla);
                 String folyamat = "";
+                String sql2 = "select * from qualitydb.Folyamatellenori_nxt where Nev ='" + MainActivity.Nev + "' and " +
+                        "Datum = '" + MainActivity.Datum + "' and NXT = '"+ nxt_mezo.getText().toString() +"'";
+                PreparedStatement statement2 = connection.prepareStatement(sql2);
+                statement2.execute();
+                ResultSet eredmeny2 = statement2.getResultSet();
+                if (eredmeny2.next()) {
+                    letezik = 1;
+                }
                 for(int szamlalo = 2; szamlalo < jtable.getChildCount(); szamlalo++){
                     TableRow row = (TableRow) jtable.getChildAt(szamlalo);
                     TextView ido1 = (TextView) row.getChildAt(0);
@@ -120,21 +116,27 @@ public class Cikk_ellenorzes extends AppCompatActivity
                     else {
                         folyamat = "-";
                     }
-                    String sql = "INSERT INTO qualitydb.Folyamatellenori_nxt (Nev,Datum,NXT,Muszak_ido,Folyamat,Cikkszam,Batch,Vizsgalt_db,Hiba_db,Hiba_arany) " +
-                            "Values('" + MainActivity.Nev + "','" + MainActivity.Datum + "','" + nxt_mezo.getText().toString() + "','" + ell_ideje +
-                            "','"+ folyamat +"','"+ adat1 +"','"+ adat2 +"','"+ adat3 +
-                            "','"+ adat4 +"','"+ adat5 +"')";
+                    String sql = "";
+
+                    if (letezik == 1) {
+                        sql = "update qualitydb.Folyamatellenori_nxt set Folyamat = '"+ folyamat +"', Cikkszam = '"+ adat1 +"', Batch = '"+ adat2 +"', Vizsgalt_db = '"+ adat3 +
+                                "', Hiba_db = '"+ adat4 +"', Hiba_arany = '"+ adat5 +"' where Nev = '"+ MainActivity.Nev +"' and Datum = '"+ MainActivity.Datum +"' and " +
+                                " NXT = '"+ nxt_mezo.getText().toString() +"' and Muszak_ido = '"+ ell_ideje +"'" ;
+
+                    }
+                    else {
+                        sql = "INSERT INTO qualitydb.Folyamatellenori_nxt (Nev,Datum,NXT,Muszak_ido,Folyamat,Cikkszam,Batch,Vizsgalt_db,Hiba_db,Hiba_arany) " +
+                                "Values('" + MainActivity.Nev + "','" + MainActivity.Datum + "','" + nxt_mezo.getText().toString() + "','" + ell_ideje +
+                                "','" + folyamat + "','" + adat1 + "','" + adat2 + "','" + adat3 +
+                                "','" + adat4 + "','" + adat5 + "')";
+                    }
                     PreparedStatement statement = connection.prepareStatement(sql);
                     statement.executeUpdate();
                 }
-
             } catch (Exception e) {
                 System.out.println(e);
                 e.printStackTrace();
-                Toast.makeText(Cikk_ellenorzes.this, "ERROR " + e.getMessage(),
-                        Toast.LENGTH_LONG).show();
             }
-
             return info;
         }
     }
@@ -148,7 +150,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
 
                 String sql = "select * from qualitydb.Folyamatellenori_nxt where Nev ='" + MainActivity.Nev + "' and " +
-                        "Datum = '" + MainActivity.Datum + "'";
+                        "Datum = '" + MainActivity.Datum + "' and NXT = '"+ nxt_mezo.getText().toString() +"'";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet eredmeny = statement.getResultSet();
@@ -177,15 +179,16 @@ public class Cikk_ellenorzes extends AppCompatActivity
                         aranyy.setText(eredmeny.getString(10));
                         eredmeny.next();
                     }
+                    letezik = 1;
                 }
-
+                else {
+                    letezik = 0;
+                }
             }
             catch (Exception e) {
                 System.out.println(e);
             }
-
             return info;
         }
     }
-
 }

@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.sql.Connection;
@@ -66,21 +68,13 @@ public class masodik_ellenorzes extends AppCompatActivity
         protected Map<String, String> doInBackground(Void... voids) {
             Map<String, String> info = new HashMap<>();
 
-
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
-                if(van == 0) {
-                    String sql = "INSERT INTO  qualitydb.Folyamatellenori_gyartas (Nev, Datum, nxt, Cikkszam, Csekk1,Csekk2,Csekk3,Csekk4,Csekk5,Csekk6,Csekk7,Csekk8,Csekk9" +
-                            ",Csekk10,Csekk11,Csekk12,Csekk13,Csekk14, Megjegyzes) Values('" + MainActivity.Nev + "', '" + MainActivity.Datum +
-                            "', '" + nxt_mezo.getText().toString() + "', '" + cikkszam.getText().toString() + "','"+ gomb1.getText().toString() + "','"+ gomb2.getText().toString() +
-                            "','"+ gomb3.getText().toString() + "','"+ gomb4.getText().toString() +"','"+ gomb5.getText().toString() +"','"+ gomb6.getText().toString() +"','"+
-                            gomb7.getText().toString() +"','"+gomb8.getText().toString() +"','"+gomb9.getText().toString() +"','"+gomb10.getText().toString() +"','"+
-                            gomb11.getText().toString() +"','"+gomb12.getText().toString() +"','"+gomb13.getText().toString() +"','"+gomb14.getText().toString() +"','"+
-                            megjegyzes.getText().toString() + "')";
-
-                    PreparedStatement statement = connection.prepareStatement(sql);
-                    statement.executeUpdate();
-                }
-                else{
+                String sql2 = "select * from qualitydb.Folyamatellenori_gyartas where Nev ='" + MainActivity.Nev + "' and " +
+                        "Datum = '" + MainActivity.Datum + "' and NXT = '"+ nxt_mezo.getText().toString() +"' and Cikkszam = '"+ cikkszam.getText().toString() +"'";
+                PreparedStatement statement2 = connection.prepareStatement(sql2);
+                statement2.execute();
+                ResultSet resultSet2 = statement2.getResultSet();
+                if(resultSet2.next()) {
                     String sql = "UPDATE qualitydb.Folyamatellenori_gyartas set Csekk1 = '" + gomb1.getText().toString() +
                             "', Csekk2 = '" + gomb2.getText().toString() + "', Csekk3 = '" + gomb3.getText().toString()  + "', Csekk4 = '" + gomb4.getText().toString()  + "', Csekk5 = '" + gomb5.getText().toString() +
                             "', Csekk6 = '" + gomb6.getText().toString() + "', Csekk7 = '" + gomb7.getText().toString() + "', Csekk8 = '" + gomb8.getText().toString() + "', Csekk9 ='" + gomb9.getText().toString() +
@@ -88,6 +82,17 @@ public class masodik_ellenorzes extends AppCompatActivity
                             "', Csekk14 = '" + gomb14.getText().toString() + "', Megjegyzes = '" + megjegyzes.getText().toString() + "'" +
                             " where Nev = '"+ MainActivity.Nev + "' and Datum = '" + MainActivity.Datum +
                             "' and NXT = '" + nxt_mezo.getText().toString() + "' and Cikkszam = '" + cikkszam.getText().toString() + "'";
+                    PreparedStatement statement = connection.prepareStatement(sql);
+                    statement.executeUpdate();
+                }
+                else{
+                    String sql = "INSERT INTO  qualitydb.Folyamatellenori_gyartas (Nev, Datum, nxt, Cikkszam, Csekk1,Csekk2,Csekk3,Csekk4,Csekk5,Csekk6,Csekk7,Csekk8,Csekk9" +
+                            ",Csekk10,Csekk11,Csekk12,Csekk13,Csekk14, Megjegyzes) Values('" + MainActivity.Nev + "', '" + MainActivity.Datum +
+                            "', '" + nxt_mezo.getText().toString() + "', '" + cikkszam.getText().toString() + "','"+ gomb1.getText().toString() + "','"+ gomb2.getText().toString() +
+                            "','"+ gomb3.getText().toString() + "','"+ gomb4.getText().toString() +"','"+ gomb5.getText().toString() +"','"+ gomb6.getText().toString() +"','"+
+                            gomb7.getText().toString() +"','"+gomb8.getText().toString() +"','"+gomb9.getText().toString() +"','"+gomb10.getText().toString() +"','"+
+                            gomb11.getText().toString() +"','"+gomb12.getText().toString() +"','"+gomb13.getText().toString() +"','"+gomb14.getText().toString() +"','"+
+                            megjegyzes.getText().toString() + "')";
                     PreparedStatement statement = connection.prepareStatement(sql);
                     statement.executeUpdate();
                 }
@@ -107,38 +112,27 @@ public class masodik_ellenorzes extends AppCompatActivity
         protected Map<String, String> doInBackground(Void... voids) {
             Map<String, String> info = new HashMap<>();
 
-
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
-                String sql = "select * from qualitydb.Folyamatellenori_gyartas where Nev = '"+ MainActivity.Nev +"' and Datum = '"+ MainActivity.Datum +
-                        "' and NXT = '"+ nxt_mezo.getText().toString() +"' and Cikkszam ='"+ cikkszam.getText().toString() +"'";
+                String sql = "select * from qualitydb.Folyamatellenori_gyartas where Nev ='" + MainActivity.Nev + "' and " +
+                        "Datum = '" + MainActivity.Datum + "' and NXT = '"+ nxt_mezo.getText().toString() +"' and Cikkszam = '"+ cikkszam.getText().toString() +"'";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet resultSet = statement.getResultSet();
                 if(resultSet.next()){
-                    gomb1.setText(resultSet.getString(5));
-                    gomb2.setText(resultSet.getString(6));
-                    gomb3.setText(resultSet.getString(7));
-                    gomb4.setText(resultSet.getString(8));
-                    gomb5.setText(resultSet.getString(9));
-                    gomb6.setText(resultSet.getString(10));
-                    gomb7.setText(resultSet.getString(11));
-                    gomb8.setText(resultSet.getString(12));
-                    gomb9.setText(resultSet.getString(13));
-                    gomb10.setText(resultSet.getString(14));
-                    gomb11.setText(resultSet.getString(15));
-                    gomb12.setText(resultSet.getString(16));
-                    gomb13.setText(resultSet.getString(17));
-                    gomb14.setText(resultSet.getString(18));
-                    megjegyzes.setText(resultSet.getString(19));
+                    int resultid = 5;
                     van = 1;
-                    System.out.println("Miért nem fut le ez a rész?*********************************************************");
-                    System.out.println(van);
+                    TableLayout jtable = (TableLayout) findViewById(R.id.masodik_ell);
+                    for(int szamlalo = 1; szamlalo < jtable.getChildCount(); szamlalo++) {
+                        TableRow row = (TableRow) jtable.getChildAt(szamlalo);
+                        EditText valasz = (EditText) row.getChildAt(1);
+                        valasz.setText(resultSet.getString(resultid));
+                        resultid++;
+                    }
+                    startActivity(getIntent());
                 }
                 else {
                     van = 0;
                 }
-                System.out.println("ellenőrzés 2 ****************************************************************************");
-                System.out.println(van);
             }
             catch (Exception e) {
                 System.out.println(e);
