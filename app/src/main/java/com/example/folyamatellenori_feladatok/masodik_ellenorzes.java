@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +43,9 @@ public class masodik_ellenorzes extends AppCompatActivity
         String nxt = beillesztes2.getStringExtra("Kuldo");
         String cik = beillesztes2.getStringExtra("Cikkszam");
         nxt_mezo.setText(nxt);
+        nxt_mezo.setTextColor(Color.BLUE);
         cikkszam.setText(cik);
+        cikkszam.setTextColor(Color.BLUE);
         new Visszatolt_masodik().execute();
     }
 
@@ -118,16 +121,33 @@ public class masodik_ellenorzes extends AppCompatActivity
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet resultSet = statement.getResultSet();
+                gombok();
                 if(resultSet.next()){
-                    int resultid = 5;
+                    //int resultid = 5;
                     van = 1;
+                    /*
                     TableLayout jtable = (TableLayout) findViewById(R.id.masodik_ell);
                     for(int szamlalo = 1; szamlalo < jtable.getChildCount(); szamlalo++) {
                         TableRow row = (TableRow) jtable.getChildAt(szamlalo);
                         EditText valasz = (EditText) row.getChildAt(1);
                         valasz.setText(resultSet.getString(resultid));
                         resultid++;
-                    }
+                    }*/
+                    gomb1.setText(resultSet.getString(5));
+                    gomb2.setText(resultSet.getString(6));
+                    gomb3.setText(resultSet.getString(7));
+                    gomb4.setText(resultSet.getString(8));
+                    gomb5.setText(resultSet.getString(9));
+                    gomb6.setText(resultSet.getString(10));
+                    gomb7.setText(resultSet.getString(11));
+                    gomb8.setText(resultSet.getString(12));
+                    gomb9.setText(resultSet.getString(13));
+                    gomb10.setText(resultSet.getString(14));
+                    gomb11.setText(resultSet.getString(15));
+                    gomb12.setText(resultSet.getString(16));
+                    gomb13.setText(resultSet.getString(17));
+                    gomb14.setText(resultSet.getString(18));
+                    megjegyzes.setText(resultSet.getString(19));
                 }
                 else {
                     van = 0;

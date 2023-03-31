@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".masodik_ellenorzes"
-    tools:showIn="@layout/activity_masodik_ellenorzes">
+    android:orientation="vertical" >
+    <ScrollView
+        android:id="@+id/layout1"
+        android:layout_height="match_parent"
+        android:scrollbars="horizontal|vertical"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dip"
+        android:scrollbarStyle="outsideInset"
+        android:fillViewport="true">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalView1"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal|vertical"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="5dip">
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -21,10 +32,7 @@
                 android:id="@+id/nxt_mezo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/textview"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="165dp"
-                tools:layout_editor_absoluteY="64dp" />
+                android:text="@string/textview" />
 
         <TextView
             android:id="@+id/cikkszam_mezo"
@@ -43,12 +51,12 @@
 
             <EditText
                 android:id="@+id/csekk2_1"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
-                tools:ignore="TouchTargetSizeCheck" />
+                 />
 
 
         </TableRow>
@@ -63,12 +71,12 @@
 
             <EditText
                 android:id="@+id/csekk2_2"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
-                tools:ignore="TouchTargetSizeCheck" />
+                 />
         </TableRow>
 
         <TableRow
@@ -81,7 +89,7 @@
 
             <EditText
                 android:id="@+id/csekk2_3"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -98,7 +106,7 @@
 
             <EditText
                 android:id="@+id/csekk2_4"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -115,12 +123,11 @@
 
             <EditText
                 android:id="@+id/csekk2_5"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:inputType="textMultiLine" />
         </TableRow>
 
         <TableRow
@@ -133,7 +140,7 @@
 
             <EditText
                 android:id="@+id/csekk2_6"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -150,7 +157,7 @@
 
             <EditText
                 android:id="@+id/csekk2_7"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -167,7 +174,7 @@
 
             <EditText
                 android:id="@+id/csekk2_8"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -184,7 +191,7 @@
 
             <EditText
                 android:id="@+id/csekk2_9"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -201,7 +208,7 @@
 
             <EditText
                 android:id="@+id/csekk2_10"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -218,7 +225,7 @@
 
             <EditText
                 android:id="@+id/csekk2_11"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -235,7 +242,7 @@
 
             <EditText
                 android:id="@+id/csekk2_12"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -252,7 +259,7 @@
 
             <EditText
                 android:id="@+id/csekk2_13"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -269,7 +276,7 @@
 
             <EditText
                 android:id="@+id/csekk2_14"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -285,7 +292,7 @@
 
             <EditText
                 android:id="@+id/megjegyzes_mezo"
-                android:layout_width="wrap_content"
+                android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
@@ -313,4 +320,6 @@
 
 
     </TableLayout>
-</androidx.core.widget.NestedScrollView>
+        </HorizontalScrollView>
+    </ScrollView>
+</LinearLayout>

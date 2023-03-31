@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,7 @@ public class elso_ellenorzes extends AppCompatActivity
         Intent beillesztes = getIntent();
         String nxt = beillesztes.getStringExtra("Kuldo");
         nxt_mezo.setText(nxt);
+        nxt_mezo.setTextColor(Color.BLUE);
     }
 
     public void ujoldal(View view)

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -40,7 +41,9 @@ public class Cikk_ellenorzes extends AppCompatActivity
         String nxt = beillesztes2.getStringExtra("Kuldo");
         String cik = beillesztes2.getStringExtra("Cikkszam");
         nxt_mezo.setText(nxt);
+        nxt_mezo.setTextColor(Color.BLUE);
         cikkszam.setText(cik);
+        cikkszam.setTextColor(Color.BLUE);
         muszakido();
         new Visszatolt().execute();
     }

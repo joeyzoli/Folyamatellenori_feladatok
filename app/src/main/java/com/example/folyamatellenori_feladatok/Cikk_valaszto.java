@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -32,6 +33,7 @@ public class Cikk_valaszto extends AppCompatActivity
         Intent beillesztes = getIntent();
         String nxt = beillesztes.getStringExtra("Kuldo");
         nxt_mezo3.setText(nxt);
+        nxt_mezo3.setTextColor(Color.BLUE);
         melyik_nxt();
         spinner = findViewById(R.id.cikk_box);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, valasztott_nxt);
