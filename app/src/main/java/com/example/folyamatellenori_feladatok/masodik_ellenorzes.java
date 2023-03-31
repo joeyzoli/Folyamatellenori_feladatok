@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -42,7 +43,6 @@ public class masodik_ellenorzes extends AppCompatActivity
         String cik = beillesztes2.getStringExtra("Cikkszam");
         nxt_mezo.setText(nxt);
         cikkszam.setText(cik);
-        gombok();
         new Visszatolt_masodik().execute();
     }
 
@@ -67,7 +67,7 @@ public class masodik_ellenorzes extends AppCompatActivity
         @Override
         protected Map<String, String> doInBackground(Void... voids) {
             Map<String, String> info = new HashMap<>();
-
+            gombok();
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
                 String sql2 = "select * from qualitydb.Folyamatellenori_gyartas where Nev ='" + MainActivity.Nev + "' and " +
                         "Datum = '" + MainActivity.Datum + "' and NXT = '"+ nxt_mezo.getText().toString() +"' and Cikkszam = '"+ cikkszam.getText().toString() +"'";
@@ -128,7 +128,6 @@ public class masodik_ellenorzes extends AppCompatActivity
                         valasz.setText(resultSet.getString(resultid));
                         resultid++;
                     }
-                    startActivity(getIntent());
                 }
                 else {
                     van = 0;
@@ -137,6 +136,7 @@ public class masodik_ellenorzes extends AppCompatActivity
             catch (Exception e) {
                 System.out.println(e);
                 e.printStackTrace();
+                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
             }
 
             return info;

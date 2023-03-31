@@ -7,7 +7,6 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
-
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:tools="http://schemas.android.com/tools"
@@ -113,33 +112,41 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="76dp"
-        android:layout_y="459dp"
+        android:layout_x="68dp"
+        android:layout_y="473dp"
         android:text="Műszak" />
 
-    <CheckBox
-        android:id="@+id/csekk_de"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:layout_width="204dp"
         android:layout_height="wrap_content"
-        android:layout_x="162dp"
-        android:layout_y="446dp"
-        android:text="De" />
+        android:layout_x="161dp"
+        android:layout_y="455dp"
+        android:orientation="horizontal">
 
-    <CheckBox
-        android:id="@+id/csekk_du"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="241dp"
-        android:layout_y="446dp"
-        android:text="Du" />
+        <RadioButton
+            android:id="@+id/csekk_de"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="162dp"
+            android:layout_y="443dp"
+            android:text="De" />
 
-    <CheckBox
-        android:id="@+id/csekk_ej"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="317dp"
-        android:layout_y="445dp"
-        android:text="Éj" />
+        <RadioButton
+            android:id="@+id/csekk_du"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="243dp"
+            android:layout_y="442dp"
+            android:text="Du" />
+
+        <RadioButton
+            android:id="@+id/csekk_ej"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="320dp"
+            android:layout_y="441dp"
+            android:text="Éj" />
+    </RadioGroup>
 
 </AbsoluteLayout>
-</androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>

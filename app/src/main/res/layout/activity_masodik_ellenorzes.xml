@@ -20,6 +20,7 @@
             <TextView
                 android:id="@+id/nxt_mezo"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/textview"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="165dp"
@@ -27,6 +28,7 @@
 
         <TextView
             android:id="@+id/cikkszam_mezo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
         </TableRow>
@@ -35,7 +37,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Műveleti utasítás (termék forgatókönyv) alkalmazása" />
+            <TextView android:text="Műveleti utasítás (termék forgatókönyv) alkalmazása"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_1"
@@ -53,7 +57,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Panel és termék cikkszám, sorozatszám jelölés (pozíció, olvashatóság)" />
+            <TextView android:text="Panel és termék cikkszám, sorozatszám jelölés (pozíció, olvashatóság)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_2"
@@ -69,7 +75,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Ónpaszta típus, lejárati idő, felbontási idő" />
+            <TextView android:text="Ónpaszta típus, lejárati idő, felbontási idő"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_3"
@@ -84,7 +92,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Ónpaszta pozícionálása, forrasztási pont kitöltése" />
+            <TextView android:text="Ónpaszta pozícionálása, forrasztási pont kitöltése"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_4"
@@ -99,7 +109,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Ónpaszta vastagságmérés megfelelőség, dokumentálás" />
+            <TextView android:text="Ónpaszta vastagságmérés megfelelőség, dokumentálás"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_5"
@@ -115,7 +127,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Ragasztó típus, lejárati idő" />
+            <TextView android:text="Ragasztó típus, lejárati idő"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_6"
@@ -130,7 +144,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Ragasztó felhordás pozícionálása, mennyiség" />
+            <TextView android:text="Ragasztó felhordás pozícionálása, mennyiség"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_7"
@@ -145,7 +161,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Hőprofil érvényessége (aktualitás, jóváhagyás)" />
+            <TextView android:text="Hőprofil érvényessége (aktualitás, jóváhagyás)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_8"
@@ -160,7 +178,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Tárazás ellenőrzése (csak Amistar)" />
+            <TextView android:text="Tárazás ellenőrzése (csak Amistar)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_9"
@@ -175,7 +195,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Panel alátámasztás pozíciója a kemencében" />
+            <TextView android:text="Panel alátámasztás pozíciója a kemencében"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_10"
@@ -190,7 +212,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="N2 gáz alkalmazása forgatókönyv alapján" />
+            <TextView android:text="N2 gáz alkalmazása forgatókönyv alapján"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_11"
@@ -205,7 +229,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Első darab ellenőrzés mintapanel vagy beültetési rajz alapján" />
+            <TextView android:text="Első darab ellenőrzés mintapanel vagy beültetési rajz alapján"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_12"
@@ -220,7 +246,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Ragasztott alkatrész csavarónyomaték mérés" />
+            <TextView android:text="Ragasztott alkatrész csavarónyomaték mérés"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_13"
@@ -235,7 +263,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Tételkísérő lap és magazin kísérő címke alkalmazása" />
+            <TextView android:text="Tételkísérő lap és magazin kísérő címke alkalmazása"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/csekk2_14"
@@ -249,7 +279,9 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
-            <TextView android:text="Megjegyzés" />
+            <TextView android:text="Megjegyzés"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:id="@+id/megjegyzes_mezo"

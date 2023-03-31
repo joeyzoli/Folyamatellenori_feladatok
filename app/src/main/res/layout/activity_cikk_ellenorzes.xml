@@ -106,15 +106,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref1"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd1"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/ref1"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+            <CheckBox
+                android:id="@+id/smd1"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
+
 
         <EditText
             android:id="@+id/cikk1_mezo"
@@ -166,15 +168,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref2"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd2"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/ref2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+            <CheckBox
+                android:id="@+id/smd2"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
+
 
         <EditText
             android:id="@+id/cikk2_mezo"
@@ -226,15 +230,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref3"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd3"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/ref3"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+            <CheckBox
+                android:id="@+id/smd3"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk3_mezo"
@@ -286,15 +291,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref4"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref4"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd4"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd4"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk4_mezo"
@@ -346,15 +351,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref5"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref5"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd5"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd5"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
+
 
         <EditText
             android:id="@+id/cikk5_mezo"
@@ -406,15 +412,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref6"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref6"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd6"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd6"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk6_mezo"
@@ -466,15 +472,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref7"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref7"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd7"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd7"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk7_mezo"
@@ -526,15 +532,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref8"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref8"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd8"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd8"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk8_mezo"
@@ -586,15 +592,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref9"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref9"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd9"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd9"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk9_mezo"
@@ -646,15 +652,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref10"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref10"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd10"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd10"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk10_mezo"
@@ -706,15 +712,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref11"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref11"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd11"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd11"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk11_mezo"
@@ -766,15 +772,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref12"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd12"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/ref12"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+            <CheckBox
+                android:id="@+id/smd12"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk12_mezo"
@@ -826,15 +833,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref13"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref13"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd13"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd13"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk13_mezo"
@@ -886,15 +893,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref14"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd14"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/ref14"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+            <CheckBox
+                android:id="@+id/smd14"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk14_mezo"
@@ -946,15 +954,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref15"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref15"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd15"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd15"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk15_mezo"
@@ -1006,15 +1014,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/ref16"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+            <CheckBox
+                android:id="@+id/ref16"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
 
-        <CheckBox
-            android:id="@+id/smd16"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp" />
+            <CheckBox
+                android:id="@+id/smd16"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp" />
 
         <EditText
             android:id="@+id/cikk16_mezo"

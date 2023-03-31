@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -94,8 +95,8 @@ public class Cikk_ellenorzes extends AppCompatActivity
                     TableRow row = (TableRow) jtable.getChildAt(szamlalo);
                     TextView ido1 = (TextView) row.getChildAt(0);
                     String ell_ideje = ido1.getText().toString();
-                    CheckBox reff1 = (CheckBox) row.getChildAt(1);
-                    CheckBox smdd1 = (CheckBox) row.getChildAt(2);
+                    CheckBox   reff1 = (CheckBox  ) row.getChildAt(1);
+                    CheckBox   smdd1 = (CheckBox  ) row.getChildAt(2);
                     EditText cikkk = (EditText) row.getChildAt(3);
                     EditText batchh = (EditText) row.getChildAt(4);
                     EditText vizsgaltt = (EditText) row.getChildAt(5);
@@ -159,8 +160,8 @@ public class Cikk_ellenorzes extends AppCompatActivity
                     for (int szamlalo = 2; szamlalo < jtable.getChildCount(); szamlalo++)
                     {
                         TableRow row = (TableRow) jtable.getChildAt(szamlalo);
-                        CheckBox reff1 = (CheckBox) row.getChildAt(1);
-                        CheckBox smdd1 = (CheckBox) row.getChildAt(2);
+                        CheckBox   reff1 = (CheckBox  ) row.getChildAt(1);
+                        CheckBox   smdd1 = (CheckBox  ) row.getChildAt(2);
                         EditText cikkk = (EditText) row.getChildAt(3);
                         EditText batchh = (EditText) row.getChildAt(4);
                         EditText vizsgaltt = (EditText) row.getChildAt(5);
