@@ -1,5 +1,6 @@
 package com.example.folyamatellenori_feladatok;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,13 +8,12 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-//import jcifs.smb.SmbFile;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity
     RadioButton De;
     RadioButton Du;
     RadioButton Ej;
+    private int muszakell = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -50,17 +51,7 @@ public class MainActivity extends AppCompatActivity
 
     public void ujoldal(View view)
     {
-        muszak();
-        datum = findViewById(R.id.datum_mezo);
-        ellenor = findViewById(R.id.nev_mezo);
-        instruktor = findViewById(R.id.instruktor_mezo);
-        muvez = findViewById(R.id.muvez_mezo);
-        Nev = ellenor.getText().toString();
-        Datum = datum.getText().toString();
-        Instruktor = instruktor.getText().toString();
-        Muvez = muvez.getText().toString();
-        Intent intent = new Intent(MainActivity.this, nxt_valasztas.class);
-        startActivity(intent);
+        ellenorzes();
     }
 
     private void muszak()
@@ -71,36 +62,62 @@ public class MainActivity extends AppCompatActivity
         Ej = findViewById(R.id.csekk_ej);
         if(De.isChecked()){
             muszak.add(de);
+            muszakell = 1;
         }
         if (Du.isChecked()){
             muszak.add(du);
+            muszakell = 1;
         }
         if(Ej.isChecked()){
             muszak.add(ej);
+            muszakell = 1;
         }
     }
 
-    private void Excel_beolvas(){
-        try {
-            /*
-            jcifs.Config.registerSmbURLHandler();
-            //SmbFile fajl = new SmbFile("smb://10.1.0.11/minosegbiztositas/Fájlok/Folyamatellenőrök/Ellenőrök.csv");
-            System.out.println(fajl.exists());
-            FileInputStream file = new FileInputStream(String.valueOf(new SmbFile("smb://10.1.0.11/minosegbiztositas/Fájlok/Folyamatellenőrök/Ellenőrök.csv")));
-            InputStreamReader inputStreamReader = new InputStreamReader(file);
-            BufferedReader br = new BufferedReader(inputStreamReader);
-            String line;
-            while ((line = br.readLine()) != null) {
-                ellenorok.add(line);
+    private void uzenet(String hibaszoveg){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(hibaszoveg);
+        alertDialogBuilder.setCancelable(false);
+        alertDialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                return;
             }
-            System.out.println("Sikerült, lefutott*********************************************");*/
-        }
-        catch (Exception e) {
-            System.out.println("Hiba történt!!************************************");
-            e.printStackTrace();
-        }
+        });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
 
+    private void ellenorzes() {
+        ellenor = findViewById(R.id.nev_mezo);
+        String neve = ellenor.getText().toString();
+        muszak();
+        if(neve.equals("")) {
+            uzenet("Nem adtál meg nevet!!");
+        }
+        else {
+            if (muszakell < 1) {
+                uzenet("Nem választottál ki műszakot!!");
+            }
+            else {
+                datum = findViewById(R.id.datum_mezo);
+                ellenor = findViewById(R.id.nev_mezo);
+                instruktor = findViewById(R.id.instruktor_mezo);
+                muvez = findViewById(R.id.muvez_mezo);
+                Nev = ellenor.getText().toString();
+                Datum = datum.getText().toString();
+                Instruktor = instruktor.getText().toString();
+                Muvez = muvez.getText().toString();
+                Intent intent = new Intent(MainActivity.this, nxt_valasztas.class);
+                startActivity(intent);
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        return;
     }
 
 }

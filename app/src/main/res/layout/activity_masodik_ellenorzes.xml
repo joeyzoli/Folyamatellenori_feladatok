@@ -56,6 +56,8 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
                  />
 
 
@@ -76,6 +78,8 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
                  />
         </TableRow>
 
@@ -93,7 +97,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true"/>
         </TableRow>
 
         <TableRow
@@ -110,7 +116,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true"/>
         </TableRow>
 
         <TableRow
@@ -127,7 +135,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true"/>
         </TableRow>
 
         <TableRow
@@ -144,7 +154,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true"/>
         </TableRow>
 
         <TableRow
@@ -161,7 +173,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true"/>
         </TableRow>
 
         <TableRow
@@ -178,7 +192,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
         </TableRow>
 
         <TableRow
@@ -195,7 +211,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
         </TableRow>
 
         <TableRow
@@ -212,7 +230,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
         </TableRow>
 
         <TableRow
@@ -229,7 +249,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
         </TableRow>
 
         <TableRow
@@ -246,7 +268,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
         </TableRow>
 
         <TableRow
@@ -263,7 +287,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
         </TableRow>
 
         <TableRow
@@ -280,7 +306,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
         </TableRow>
         <TableRow
             android:layout_width="fill_parent"
@@ -296,7 +324,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:imeOptions="actionDone"
+                android:singleLine="true" />
         </TableRow>
         <TableRow
             android:layout_width="fill_parent"

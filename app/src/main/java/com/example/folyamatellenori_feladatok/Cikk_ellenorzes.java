@@ -195,4 +195,9 @@ public class Cikk_ellenorzes extends AppCompatActivity
             return info;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        return;
+    }
 }

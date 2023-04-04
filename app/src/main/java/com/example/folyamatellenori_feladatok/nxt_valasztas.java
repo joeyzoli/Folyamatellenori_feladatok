@@ -85,4 +85,9 @@ public class nxt_valasztas extends AppCompatActivity
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        return;
+    }
+
 }

@@ -1,7 +1,5 @@
 package com.example.folyamatellenori_feladatok;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,11 +7,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -51,14 +48,14 @@ public class masodik_ellenorzes extends AppCompatActivity
 
     public void nxt(View view)
     {
-        new Csekk2_ellenorzes().execute();
+        new Vicsek2_organelles().execute();
         Intent intent = new Intent(masodik_ellenorzes.this, nxt_valasztas.class);
         startActivity(intent);
     }
 
     public void ujoldal_cikk(View view)
     {
-        new Csekk2_ellenorzes().execute();
+        new Vicsek2_organelles().execute();
         Intent intent = new Intent(masodik_ellenorzes.this, Cikk_ellenorzes.class);
         intent.putExtra("Kuldo", nxt_mezo.getText().toString() );
         intent.putExtra("Cikkszam", cikkszam.getText().toString() );
@@ -66,7 +63,7 @@ public class masodik_ellenorzes extends AppCompatActivity
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class Csekk2_ellenorzes extends AsyncTask<Void, Void, Map<String, String>> {
+    public class Vicsek2_organelles extends AsyncTask<Void, Void, Map<String, String>> {
         @Override
         protected Map<String, String> doInBackground(Void... voids) {
             Map<String, String> info = new HashMap<>();
@@ -170,5 +167,10 @@ public class masodik_ellenorzes extends AppCompatActivity
         gomb10 = findViewById(R.id.csekk2_10);gomb11 = findViewById(R.id.csekk2_11);gomb12 = findViewById(R.id.csekk2_12);
         gomb13 = findViewById(R.id.csekk2_13);gomb14 = findViewById(R.id.csekk2_14);
         megjegyzes = findViewById(R.id.megjegyzes_mezo);
+    }
+
+    @Override
+    public void onBackPressed() {
+        return;
     }
 }

@@ -135,7 +135,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/batch1_mezo"
@@ -143,7 +145,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/vizsgalt1_mezo"
@@ -151,7 +155,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/hiba1_mezo"
@@ -159,7 +165,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/arany1_mezo"
@@ -167,7 +175,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
     </TableRow>
 
     <TableRow
@@ -197,7 +207,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/batch2_mezo"
@@ -205,7 +217,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/vizsgalt2_mezo"
@@ -213,7 +227,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/hiba2_mezo"
@@ -221,7 +237,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/arany2_mezo"
@@ -229,7 +247,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
     </TableRow>
 
     <TableRow
@@ -258,7 +278,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/batch3_mezo"
@@ -266,7 +288,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/vizsgalt3_mezo"
@@ -274,7 +298,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/hiba3_mezo"
@@ -282,7 +308,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/arany3_mezo"
@@ -290,7 +318,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
     </TableRow>
 
     <TableRow
@@ -318,7 +348,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/batch4_mezo"
@@ -326,7 +358,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/vizsgalt4_mezo"
@@ -334,7 +368,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/hiba4_mezo"
@@ -342,7 +378,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/arany4_mezo"
@@ -350,7 +388,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
     </TableRow>
 
     <TableRow
@@ -379,7 +419,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/batch5_mezo"
@@ -387,7 +429,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/vizsgalt5_mezo"
@@ -395,7 +439,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/hiba5_mezo"
@@ -403,7 +449,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/arany5_mezo"
@@ -411,7 +459,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
     </TableRow>
 
     <TableRow
@@ -439,7 +489,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/batch6_mezo"
@@ -447,7 +499,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/vizsgalt6_mezo"
@@ -455,7 +509,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/hiba6_mezo"
@@ -463,7 +519,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/arany6_mezo"
@@ -471,7 +529,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
     </TableRow>
 
     <TableRow
@@ -499,7 +559,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/batch7_mezo"
@@ -507,7 +569,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/vizsgalt7_mezo"
@@ -515,7 +579,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/hiba7_mezo"
@@ -523,7 +589,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/arany7_mezo"
@@ -531,7 +599,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </TableRow>
 
     <TableRow
@@ -559,7 +629,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/batch8_mezo"
@@ -567,7 +639,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/vizsgalt8_mezo"
@@ -575,7 +649,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/hiba8_mezo"
@@ -583,7 +659,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/arany8_mezo"
@@ -591,7 +669,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </TableRow>
 
     <TableRow
@@ -619,7 +699,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/batch9_mezo"
@@ -627,7 +709,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/vizsgalt9_mezo"
@@ -635,7 +719,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/hiba9_mezo"
@@ -643,7 +729,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/arany9_mezo"
@@ -651,7 +739,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </TableRow>
 
     <TableRow
@@ -679,7 +769,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/batch10_mezo"
@@ -687,7 +779,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/vizsgalt10_mezo"
@@ -695,7 +789,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/hiba10_mezo"
@@ -703,7 +799,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/arany10_mezo"
@@ -711,7 +809,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </TableRow>
 
     <TableRow
@@ -739,7 +839,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/batch11_mezo"
@@ -747,7 +849,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/vizsgalt11_mezo"
@@ -755,7 +859,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/hiba11_mezo"
@@ -763,7 +869,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/arany11_mezo"
@@ -771,7 +879,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </TableRow>
 
     <TableRow
@@ -800,7 +910,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/batch12_mezo"
@@ -808,7 +920,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/vizsgalt12_mezo"
@@ -816,7 +930,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/hiba12_mezo"
@@ -824,7 +940,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/arany12_mezo"
@@ -832,7 +950,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </TableRow>
 
     <TableRow
@@ -860,7 +980,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/batch13_mezo"
@@ -868,7 +990,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/vizsgalt13_mezo"
@@ -876,7 +1000,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/hiba13_mezo"
@@ -884,7 +1010,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/arany13_mezo"
@@ -892,7 +1020,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </TableRow>
 
     <TableRow
@@ -921,7 +1051,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/batch14_mezo"
@@ -929,7 +1061,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/vizsgalt14_mezo"
@@ -937,7 +1071,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/hiba14_mezo"
@@ -945,7 +1081,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/arany14_mezo"
@@ -953,7 +1091,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </TableRow>
 
     <TableRow
@@ -981,7 +1121,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/batch15_mezo"
@@ -989,7 +1131,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/vizsgalt15_mezo"
@@ -997,7 +1141,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/hiba15_mezo"
@@ -1005,7 +1151,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/arany15_mezo"
@@ -1013,7 +1161,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </TableRow>
 
     <TableRow
@@ -1041,7 +1191,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/batch16_mezo"
@@ -1049,7 +1201,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/vizsgalt16_mezo"
@@ -1057,7 +1211,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/hiba16_mezo"
@@ -1065,7 +1221,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/arany16_mezo"
@@ -1074,7 +1232,9 @@
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
-            tools:ignore="DuplicateIds" />
+            tools:ignore="DuplicateIds"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </TableRow>
 
     <TableRow

@@ -123,7 +123,6 @@
         android:layout_height="wrap_content"
         android:layout_x="237dp"
         android:layout_y="560dp"
-        android:onClick="ujoldal"
         android:text="@string/tov_bb"
         tools:layout_editor_absoluteX="157dp"
         tools:layout_editor_absoluteY="663dp" />
