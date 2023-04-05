@@ -34,7 +34,7 @@ public class Cikk_valaszto extends AppCompatActivity
         nxt_mezo3.setTextColor(Color.BLUE);
         melyik_nxt();
         spinner = findViewById(R.id.cikk_box);
-        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, valasztott_nxt);
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, valasztott_nxt);  //simple_spinner_item
         spinner.setAdapter(arrayAdapter);
     }
 

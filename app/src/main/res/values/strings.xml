@@ -41,6 +41,10 @@
     <string name="cikksz_m_v_laszt_sa">Cikkszám választása</string>
     <string name="kezd_s">Kezdés</string>
     <string name="folytat_s">Folytatás</string>
+    <string name="m_szak">Műszak</string>
+    <string name="de">De</string>
+    <string name="du">Du</string>
+    <string name="j">Éj</string>
 
 
     <string-array name="nxt_box_array">

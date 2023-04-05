@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,18 +17,12 @@
         android:layout_y="224dp"
         android:text="@string/folyamatellen_r" />
 
-    <EditText
-        android:id="@+id/nev_mezo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="163dp"
-        android:layout_y="210dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:minHeight="48dp"
-        tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+    <Spinner
+        android:id="@+id/nev_box"
+        android:layout_width="211dp"
+        android:layout_height="48dp"
+        android:layout_x="162dp"
+        android:layout_y="208dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -114,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_x="68dp"
         android:layout_y="473dp"
-        android:text="Műszak" />
+        android:text="@string/m_szak" />
 
     <RadioGroup
         android:layout_width="204dp"
@@ -127,26 +114,19 @@
             android:id="@+id/csekk_de"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="162dp"
-            android:layout_y="443dp"
-            android:text="De" />
+            android:text="@string/de" />
 
         <RadioButton
             android:id="@+id/csekk_du"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="243dp"
-            android:layout_y="442dp"
-            android:text="Du" />
+            android:text="@string/du" />
 
         <RadioButton
             android:id="@+id/csekk_ej"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="320dp"
-            android:layout_y="441dp"
-            android:text="Éj" />
+            android:text="@string/j" />
     </RadioGroup>
 
-</AbsoluteLayout>
-    </androidx.core.widget.NestedScrollView>
+    </AbsoluteLayout>
