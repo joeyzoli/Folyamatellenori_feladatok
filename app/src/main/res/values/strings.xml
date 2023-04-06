@@ -48,15 +48,15 @@
 
 
     <string-array name="nxt_box_array">
-        <item>NXT1</item>
-        <item>NXT2</item>
-        <item>NXT3</item>
-        <item>NXT4</item>
-        <item>NXT5</item>
-        <item>NXT6</item>
-        <item>NXT7</item>
-        <item>NXT8</item>
-        <item>NXT9</item>
+        <item>NXT01</item>
+        <item>NXT02</item>
+        <item>NXT03</item>
+        <item>NXT04</item>
+        <item>NXT05</item>
+        <item>NXT06</item>
+        <item>NXT07</item>
+        <item>NXT08</item>
+        <item>NXT09</item>
         <item>NXT10</item>
     </string-array>
 </resources>

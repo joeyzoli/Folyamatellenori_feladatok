@@ -148,7 +148,11 @@ public class MainActivity extends AppCompatActivity
         @Override
         protected Map<String, String> doInBackground(Void... voids) {
             Map<String, String> info = new HashMap<>();
-
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
 
                 String sql = "select Nev from qualitydb.Alapadatok_ellenorok where 3 = 3";
