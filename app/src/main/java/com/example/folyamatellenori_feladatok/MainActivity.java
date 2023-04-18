@@ -7,12 +7,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -33,13 +30,12 @@ public class MainActivity extends AppCompatActivity
     static final String URL = "jdbc:mysql://172.20.22.29?autoReconnect=true&useSSL=false";
     static final String USER = "veasquality";
     static final String PASSWORD = "kg6T$kd14TWbs9&gd";
-    static int id;
     static String Nev;
     static String Datum;
     static String Instruktor;
     static String Muvez;
     private EditText datum;
-    private static Object zar_1 = new Object();
+    private static final Object zar_1 = new Object();
     Spinner ellenor;
     EditText instruktor;
     EditText muvez;
@@ -112,7 +108,6 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
-                return;
             }
         });
         AlertDialog alertDialog = alertDialogBuilder.create();
@@ -140,7 +135,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        return;
     }
 
     @SuppressLint("StaticFieldLeak")

@@ -1,6 +1,9 @@
 package com.example.folyamatellenori_feladatok;
 
 import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -44,6 +47,9 @@ public class masodik_ellenorzes extends AppCompatActivity
         cikkszam.setText(cik);
         cikkszam.setTextColor(Color.BLUE);
         new Visszatolt_masodik().execute();
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("label", cikkszam.getText().toString());
+        clipboard.setPrimaryClip(clip);
     }
 
     public void nxt(View view)

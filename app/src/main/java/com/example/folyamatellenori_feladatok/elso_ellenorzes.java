@@ -1,10 +1,5 @@
 package com.example.folyamatellenori_feladatok;
 
-import static com.google.android.material.internal.ContextUtils.getActivity;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,15 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class elso_ellenorzes extends AppCompatActivity
 {
@@ -53,7 +48,7 @@ public class elso_ellenorzes extends AppCompatActivity
                                           ellenorzes_elsocsekk();
                                       }
                                   });
-                gomb1.setOnClickListener(new View.OnClickListener() {
+        gomb1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!gomb1.isSelected()) {
@@ -289,11 +284,11 @@ public class elso_ellenorzes extends AppCompatActivity
                         public void onClick(DialogInterface dialog, int id) {
                             new Csekk1().execute();
                         }
-                    })
-                    .setNegativeButton("Nem", new DialogInterface.OnClickListener() {
+                    });
+            builder.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             //  Action for 'NO' Button
-                            return;
+
                         }
                     });
             //Creating dialog box
