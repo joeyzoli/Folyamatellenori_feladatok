@@ -7,9 +7,11 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -156,7 +158,6 @@ public class elso_ellenorzes extends AppCompatActivity
                 }
             }
         });
-
     }
 
     public void ujoldal(View view)
@@ -276,25 +277,25 @@ public class elso_ellenorzes extends AppCompatActivity
             csekkolva++;
         }
         if (csekkolva < 9) {
-            builder = new AlertDialog.Builder(elso_ellenorzes.this);
-            builder.setTitle("Hibaüzenet");
-            builder.setMessage("Biztos nem pipálod ki mindet?! \n Az NOK logot fog eredményezni ahol nincs kipipálva!");
-            builder.setCancelable(false);
-            builder.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
+            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch (which){
+                        case DialogInterface.BUTTON_POSITIVE:
+                            //Yes button clicked
                             new Csekk1().execute();
-                        }
-                    });
-            builder.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            //  Action for 'NO' Button
 
-                        }
-                    });
-            //Creating dialog box
-            AlertDialog alert = builder.create();
-            //Setting the title manually
-            alert.show();
+                        case DialogInterface.BUTTON_NEGATIVE:
+                            Intent intent = new Intent(elso_ellenorzes.this, elso_ellenorzes.class);
+                            intent.putExtra("Kuldo", nxt_mezo.getText().toString() );
+                            startActivity(intent);
+                    }
+                }
+            };
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Biztos tovább mész? \n Amit nem pipáltál ki ott NOK eredmény keletkezik!").setPositiveButton("Igen", dialogClickListener)
+                    .setNegativeButton("Nem", dialogClickListener).show();
         }
     }
 
