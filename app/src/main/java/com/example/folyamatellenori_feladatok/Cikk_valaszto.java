@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -157,6 +158,10 @@ public class Cikk_valaszto extends AppCompatActivity
             catch (Exception e) {
                 System.out.println(e);
                 Log.e("tag", e.toString());
+                Toast.makeText(getApplicationContext(),"Hiba történt! \n Újratöltődik az oldal",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Cikk_valaszto.this, Cikk_valaszto.class);
+                intent.putExtra("Kuldo", nxt_mezo3.getText().toString() );
+                startActivity(intent);
             }
             return info;
         }

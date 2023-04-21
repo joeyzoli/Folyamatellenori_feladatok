@@ -22,7 +22,8 @@
         android:layout_width="211dp"
         android:layout_height="48dp"
         android:layout_x="162dp"
-        android:layout_y="208dp" />
+        android:layout_y="208dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView2"
@@ -70,8 +71,8 @@
         android:id="@+id/ellenorzes_gomb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="141dp"
-        android:layout_y="595dp"
+        android:layout_x="140dp"
+        android:layout_y="533dp"
         android:onClick="ujoldal"
         android:text="@string/start" />
 
@@ -99,15 +100,15 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="68dp"
-        android:layout_y="473dp"
+        android:layout_x="70dp"
+        android:layout_y="449dp"
         android:text="@string/m_szak" />
 
     <RadioGroup
         android:layout_width="204dp"
         android:layout_height="wrap_content"
-        android:layout_x="161dp"
-        android:layout_y="455dp"
+        android:layout_x="158dp"
+        android:layout_y="434dp"
         android:orientation="horizontal">
 
         <RadioButton
@@ -129,4 +130,4 @@
             android:text="@string/j" />
     </RadioGroup>
 
-    </AbsoluteLayout>
+</AbsoluteLayout>

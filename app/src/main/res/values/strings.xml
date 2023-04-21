@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Folyamatellenori_feladatok</string>
+    <string name="app_name">Folyamatellenőri feladatok app</string>
     <string name="folyamatellen_r">Folyamatellenőr</string>
     <string name="ellen_rz_s">Ellenőrzés</string>
     <string name="gy_rt_sor">Gyártósor</string>
@@ -58,5 +58,28 @@
         <item>NXT08</item>
         <item>NXT09</item>
         <item>NXT10</item>
+    </string-array>
+
+    <string-array name="paszta">
+        <item>999000221</item>
+        <item>51300065</item>
+        <item>999000222</item>
+        <item>320-750-38</item>
+        <item>448-000-53</item>
+        <item>448-000-54</item>
+        <item>448-000-55</item>
+        <item>448-000-56</item>
+        <item>320-764-89</item>
+        <item>999000223</item>
+        <item>23333127</item>
+    </string-array>
+
+    <string-array name="ragaszto">
+        <item>PD944</item>
+        <item>PD945</item>
+        <item>PD955M</item>
+        <item>PD955 PY</item>
+        <item>PD860002 </item>
+        <item>ECCOBOND D125F</item>
     </string-array>
 </resources>

@@ -9,7 +9,9 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,12 +26,14 @@ import java.util.Map;
 
 public class masodik_ellenorzes extends AppCompatActivity
 {
-    EditText gomb1; EditText gomb2;EditText gomb3;EditText gomb4;EditText gomb5;
-    EditText gomb6;EditText gomb7;EditText gomb8;EditText gomb9;
+    EditText gomb1; EditText gomb2;
+    Spinner gomb3;EditText gomb4;EditText gomb5;
+    Spinner gomb6;EditText gomb7;EditText gomb8;EditText gomb9;
     EditText gomb10;EditText gomb11;EditText gomb12;EditText gomb13;EditText gomb14;
     TextView nxt_mezo;
     TextView cikkszam;
     EditText megjegyzes;
+    private static Object zar_3 = new Object();
     static int van = 0;
     @SuppressLint("WrongViewCast")
     @Override
@@ -50,6 +54,17 @@ public class masodik_ellenorzes extends AppCompatActivity
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("label", cikkszam.getText().toString());
         clipboard.setPrimaryClip(clip);
+        synchronized(zar_3)
+        {
+            try
+            {
+                zar_3.wait();			// Várakozunk a jelzésre
+            }
+            catch (InterruptedException e)
+            {
+                System.out.print(e);
+            }
+        }
     }
 
     public void nxt(View view)
@@ -82,8 +97,8 @@ public class masodik_ellenorzes extends AppCompatActivity
                 ResultSet resultSet2 = statement2.getResultSet();
                 if(resultSet2.next()) {
                     String sql = "UPDATE qualitydb.Folyamatellenori_gyartas set Csekk1 = '" + gomb1.getText().toString() +
-                            "', Csekk2 = '" + gomb2.getText().toString() + "', Csekk3 = '" + gomb3.getText().toString()  + "', Csekk4 = '" + gomb4.getText().toString()  + "', Csekk5 = '" + gomb5.getText().toString() +
-                            "', Csekk6 = '" + gomb6.getText().toString() + "', Csekk7 = '" + gomb7.getText().toString() + "', Csekk8 = '" + gomb8.getText().toString() + "', Csekk9 ='" + gomb9.getText().toString() +
+                            "', Csekk2 = '" + gomb2.getText().toString() + "', Csekk3 = '" + gomb3.getSelectedItem().toString()  + "', Csekk4 = '" + gomb4.getText().toString()  + "', Csekk5 = '" + gomb5.getText().toString() +
+                            "', Csekk6 = '" + gomb6.getSelectedItem().toString() + "', Csekk7 = '" + gomb7.getText().toString() + "', Csekk8 = '" + gomb8.getText().toString() + "', Csekk9 ='" + gomb9.getText().toString() +
                             "', Csekk10 = '" + gomb10.getText().toString() + "', Csekk11 = '" + gomb11.getText().toString() + "', Csekk12 = '" + gomb12.getText().toString() + "', Csekk13 = '" + gomb13.getText().toString() +
                             "', Csekk14 = '" + gomb14.getText().toString() + "', Megjegyzes = '" + megjegyzes.getText().toString() + "'" +
                             " where Nev = '"+ MainActivity.Nev + "' and Datum = '" + MainActivity.Datum +
@@ -95,7 +110,7 @@ public class masodik_ellenorzes extends AppCompatActivity
                     String sql = "INSERT INTO  qualitydb.Folyamatellenori_gyartas (Nev, Datum, nxt, Cikkszam, Csekk1,Csekk2,Csekk3,Csekk4,Csekk5,Csekk6,Csekk7,Csekk8,Csekk9" +
                             ",Csekk10,Csekk11,Csekk12,Csekk13,Csekk14, Megjegyzes) Values('" + MainActivity.Nev + "', '" + MainActivity.Datum +
                             "', '" + nxt_mezo.getText().toString() + "', '" + cikkszam.getText().toString() + "','"+ gomb1.getText().toString() + "','"+ gomb2.getText().toString() +
-                            "','"+ gomb3.getText().toString() + "','"+ gomb4.getText().toString() +"','"+ gomb5.getText().toString() +"','"+ gomb6.getText().toString() +"','"+
+                            "','"+ gomb3.getSelectedItem().toString() + "','"+ gomb4.getText().toString() +"','"+ gomb5.getText().toString() +"','"+ gomb6.getSelectedItem().toString() +"','"+
                             gomb7.getText().toString() +"','"+gomb8.getText().toString() +"','"+gomb9.getText().toString() +"','"+gomb10.getText().toString() +"','"+
                             gomb11.getText().toString() +"','"+gomb12.getText().toString() +"','"+gomb13.getText().toString() +"','"+gomb14.getText().toString() +"','"+
                             megjegyzes.getText().toString() + "')";
@@ -138,10 +153,12 @@ public class masodik_ellenorzes extends AppCompatActivity
                     }*/
                     gomb1.setText(resultSet.getString(5));
                     gomb2.setText(resultSet.getString(6));
-                    gomb3.setText(resultSet.getString(7));
+                    //gomb3.setText(resultSet.getString(7));
+                    gomb3.setSelection(((ArrayAdapter)gomb3.getAdapter()).getPosition(resultSet.getString(7)));
                     gomb4.setText(resultSet.getString(8));
                     gomb5.setText(resultSet.getString(9));
-                    gomb6.setText(resultSet.getString(10));
+                    //gomb6.setText(resultSet.getString(10));
+                    gomb6.setSelection(((ArrayAdapter)gomb6.getAdapter()).getPosition(resultSet.getString(10)));
                     gomb7.setText(resultSet.getString(11));
                     gomb8.setText(resultSet.getString(12));
                     gomb9.setText(resultSet.getString(13));
@@ -154,6 +171,11 @@ public class masodik_ellenorzes extends AppCompatActivity
                 }
                 else {
                     van = 0;
+                }
+
+                synchronized(zar_3)
+                {
+                    zar_3.notify();		// Értesítjük a zar_2-t, hogy mehet
                 }
             }
             catch (Exception e) {

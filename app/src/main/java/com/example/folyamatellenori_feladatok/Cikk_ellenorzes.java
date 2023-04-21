@@ -3,6 +3,9 @@ package com.example.folyamatellenori_feladatok;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -20,6 +23,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,7 +33,8 @@ public class Cikk_ellenorzes extends AppCompatActivity
     TextView cikkszam;
     TextView idoo1;TextView idoo2;TextView idoo3;TextView idoo4;TextView idoo5;TextView idoo6;TextView idoo7;TextView idoo8;TextView idoo9;TextView idoo10;TextView idoo11;TextView idoo12;
     TextView idoo13;TextView idoo14;TextView idoo15;TextView idoo16;
-    static int letezik;
+    int letezik = 0;
+    private static Object zar_4 = new Object();
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +50,21 @@ public class Cikk_ellenorzes extends AppCompatActivity
         cikkszam.setText(cik);
         cikkszam.setTextColor(Color.BLUE);
         muszakido();
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("label", cikkszam.getText().toString());
+        clipboard.setPrimaryClip(clip);
         new Visszatolt().execute();
+        synchronized(zar_4)
+        {
+            try
+            {
+                zar_4.wait();			// Várakozunk a jelzésre
+            }
+            catch (InterruptedException e)
+            {
+                System.out.print(e);
+            }
+        }
     }
 
     public void ujoldal_nxt(View view)
@@ -154,26 +173,25 @@ public class Cikk_ellenorzes extends AppCompatActivity
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
 
                 String sql = "select * from qualitydb.Folyamatellenori_nxt where Nev ='" + MainActivity.Nev + "' and " +
-                        "Datum = '" + MainActivity.Datum + "' and NXT = '"+ nxt_mezo.getText().toString() +"'";
+                        "Datum = '" + MainActivity.Datum + "' and NXT = '" + nxt_mezo.getText().toString() + "'";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet eredmeny = statement.getResultSet();
-                if (eredmeny.next()) {
-                    TableLayout jtable = (TableLayout) findViewById(R.id.tabla);
-                    for (int szamlalo = 2; szamlalo < jtable.getChildCount(); szamlalo++)
-                    {
+
+                TableLayout jtable = (TableLayout) findViewById(R.id.tabla);
+                for (int szamlalo = 2; szamlalo < jtable.getChildCount(); szamlalo++) {
+                    if (eredmeny.next()) {
                         TableRow row = (TableRow) jtable.getChildAt(szamlalo);
-                        CheckBox   reff1 = (CheckBox  ) row.getChildAt(1);
-                        CheckBox   smdd1 = (CheckBox  ) row.getChildAt(2);
+                        CheckBox reff1 = (CheckBox) row.getChildAt(1);
+                        CheckBox smdd1 = (CheckBox) row.getChildAt(2);
                         EditText cikkk = (EditText) row.getChildAt(3);
                         EditText batchh = (EditText) row.getChildAt(4);
                         EditText vizsgaltt = (EditText) row.getChildAt(5);
                         EditText hibaa = (EditText) row.getChildAt(6);
                         EditText aranyy = (EditText) row.getChildAt(7);
-                        if(eredmeny.getString(5).equals("Reflow")) {
+                        if (eredmeny.getString(5).equals("Reflow")) {
                             reff1.setChecked(true);
-                        }
-                        else if (eredmeny.getString(5).equals("SMD")) {
+                        } else if (eredmeny.getString(5).equals("SMD")) {
                             smdd1.setChecked(true);
                         }
                         cikkk.setText(eredmeny.getString(6));
@@ -181,16 +199,16 @@ public class Cikk_ellenorzes extends AppCompatActivity
                         vizsgaltt.setText(eredmeny.getString(8));
                         hibaa.setText(eredmeny.getString(9));
                         aranyy.setText(eredmeny.getString(10));
-                        eredmeny.next();
                     }
-                    letezik = 1;
                 }
-                else {
-                    letezik = 0;
-                }
-            }
-            catch (Exception e) {
+            } catch (SQLException e) {
+                e.printStackTrace();
                 System.out.println(e);
+                Intent intent = new Intent(Cikk_ellenorzes.this, Cikk_ellenorzes.class);
+                startActivity(intent);
+            }
+            synchronized (zar_4) {
+                zar_4.notify();        // Értesítjük a zar_2-t, hogy mehet
             }
             return info;
         }
