@@ -61,6 +61,7 @@
     </string-array>
 
     <string-array name="paszta">
+        <item>-</item>
         <item>999000221</item>
         <item>51300065</item>
         <item>999000222</item>
@@ -75,6 +76,7 @@
     </string-array>
 
     <string-array name="ragaszto">
+        <item>-</item>
         <item>PD944</item>
         <item>PD945</item>
         <item>PD955M</item>
