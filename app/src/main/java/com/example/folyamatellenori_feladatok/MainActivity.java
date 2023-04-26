@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ellenorok);
         ellenor.setAdapter(arrayAdapter);
         //new Atallas_ellenorzo().execute();
-        timer.scheduleAtFixedRate(new TimerTask() {
+        /*timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity
                 Vibrator vb = (Vibrator)   getSystemService(Context.VIBRATOR_SERVICE);
                 vb.vibrate(2000);
             }
-        }, 0, 1*60*1000); //1 perc
+        }, 0, 1*60*1000); //1 perc*/
     }
 
     public void ujoldal(View view)

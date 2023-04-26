@@ -30,6 +30,7 @@ public class masodik_ellenorzes extends AppCompatActivity
     Spinner gomb3;EditText gomb4;EditText gomb5;
     Spinner gomb6;EditText gomb7;EditText gomb8;EditText gomb9;
     EditText gomb10;EditText gomb11;EditText gomb12;EditText gomb13;EditText gomb14;
+    Spinner gomb15;Spinner gomb16;
     TextView nxt_mezo;
     TextView cikkszam;
     EditText megjegyzes;
@@ -98,9 +99,10 @@ public class masodik_ellenorzes extends AppCompatActivity
                 if(resultSet2.next()) {
                     String sql = "UPDATE qualitydb.Folyamatellenori_gyartas set Csekk1 = '" + gomb1.getText().toString() +
                             "', Csekk2 = '" + gomb2.getText().toString() + "', Csekk3 = '" + gomb3.getSelectedItem().toString()  + "', Csekk4 = '" + gomb4.getText().toString()  + "', Csekk5 = '" + gomb5.getText().toString() +
-                            "', Csekk6 = '" + gomb6.getSelectedItem().toString() + "', Csekk7 = '" + gomb7.getText().toString() + "', Csekk8 = '" + gomb8.getText().toString() + "', Csekk9 ='" + gomb9.getText().toString() +
-                            "', Csekk10 = '" + gomb10.getText().toString() + "', Csekk11 = '" + gomb11.getText().toString() + "', Csekk12 = '" + gomb12.getText().toString() + "', Csekk13 = '" + gomb13.getText().toString() +
-                            "', Csekk14 = '" + gomb14.getText().toString() + "', Megjegyzes = '" + megjegyzes.getText().toString() + "'" +
+                            "', Csekk6 = '" + gomb6.getSelectedItem().toString() + "', Csekk7 = '" + gomb15.getSelectedItem().toString() + "', Csekk8 = '" + gomb16.getSelectedItem().toString() +
+                            "', Csekk9 = '" + gomb7.getText().toString() + "', Csekk10 = '" + gomb8.getText().toString() + "', Csekk11 ='" + gomb9.getText().toString() +
+                            "', Csekk12 = '" + gomb10.getText().toString() + "', Csekk13 = '" + gomb11.getText().toString() + "', Csekk14 = '" + gomb12.getText().toString() + "', Csekk15 = '" + gomb13.getText().toString() +
+                            "', Csekk16 = '" + gomb14.getText().toString() + "', Megjegyzes = '" + megjegyzes.getText().toString() + "'" +
                             " where Nev = '"+ MainActivity.Nev + "' and Datum = '" + MainActivity.Datum +
                             "' and NXT = '" + nxt_mezo.getText().toString() + "' and Cikkszam = '" + cikkszam.getText().toString() + "'";
                     PreparedStatement statement = connection.prepareStatement(sql);
@@ -108,9 +110,10 @@ public class masodik_ellenorzes extends AppCompatActivity
                 }
                 else{
                     String sql = "INSERT INTO  qualitydb.Folyamatellenori_gyartas (Nev, Datum, nxt, Cikkszam, Csekk1,Csekk2,Csekk3,Csekk4,Csekk5,Csekk6,Csekk7,Csekk8,Csekk9" +
-                            ",Csekk10,Csekk11,Csekk12,Csekk13,Csekk14, Megjegyzes) Values('" + MainActivity.Nev + "', '" + MainActivity.Datum +
+                            ",Csekk10,Csekk11,Csekk12,Csekk13,Csekk14,Csekk15,Csekk16, Megjegyzes) Values('" + MainActivity.Nev + "', '" + MainActivity.Datum +
                             "', '" + nxt_mezo.getText().toString() + "', '" + cikkszam.getText().toString() + "','"+ gomb1.getText().toString() + "','"+ gomb2.getText().toString() +
                             "','"+ gomb3.getSelectedItem().toString() + "','"+ gomb4.getText().toString() +"','"+ gomb5.getText().toString() +"','"+ gomb6.getSelectedItem().toString() +"','"+
+                            gomb6.getSelectedItem().toString() +"','"+ gomb6.getSelectedItem().toString() +"','"+
                             gomb7.getText().toString() +"','"+gomb8.getText().toString() +"','"+gomb9.getText().toString() +"','"+gomb10.getText().toString() +"','"+
                             gomb11.getText().toString() +"','"+gomb12.getText().toString() +"','"+gomb13.getText().toString() +"','"+gomb14.getText().toString() +"','"+
                             megjegyzes.getText().toString() + "')";
@@ -159,15 +162,17 @@ public class masodik_ellenorzes extends AppCompatActivity
                     gomb5.setText(resultSet.getString(9));
                     //gomb6.setText(resultSet.getString(10));
                     gomb6.setSelection(((ArrayAdapter)gomb6.getAdapter()).getPosition(resultSet.getString(10)));
-                    gomb7.setText(resultSet.getString(11));
-                    gomb8.setText(resultSet.getString(12));
-                    gomb9.setText(resultSet.getString(13));
-                    gomb10.setText(resultSet.getString(14));
-                    gomb11.setText(resultSet.getString(15));
-                    gomb12.setText(resultSet.getString(16));
-                    gomb13.setText(resultSet.getString(17));
-                    gomb14.setText(resultSet.getString(18));
-                    megjegyzes.setText(resultSet.getString(19));
+                    gomb15.setSelection(((ArrayAdapter)gomb15.getAdapter()).getPosition(resultSet.getString(11)));
+                    gomb16.setSelection(((ArrayAdapter)gomb16.getAdapter()).getPosition(resultSet.getString(12)));
+                    gomb7.setText(resultSet.getString(13));
+                    gomb8.setText(resultSet.getString(14));
+                    gomb9.setText(resultSet.getString(15));
+                    gomb10.setText(resultSet.getString(16));
+                    gomb11.setText(resultSet.getString(17));
+                    gomb12.setText(resultSet.getString(18));
+                    gomb13.setText(resultSet.getString(19));
+                    gomb14.setText(resultSet.getString(20));
+                    megjegyzes.setText(resultSet.getString(21));
                 }
                 else {
                     van = 0;
@@ -194,6 +199,7 @@ public class masodik_ellenorzes extends AppCompatActivity
         gomb7 = findViewById(R.id.csekk2_7);gomb8 = findViewById(R.id.csekk2_8);gomb9 = findViewById(R.id.csekk2_9);
         gomb10 = findViewById(R.id.csekk2_10);gomb11 = findViewById(R.id.csekk2_11);gomb12 = findViewById(R.id.csekk2_12);
         gomb13 = findViewById(R.id.csekk2_13);gomb14 = findViewById(R.id.csekk2_14);
+        gomb15 = findViewById(R.id.csekk2_15);gomb16 = findViewById(R.id.csekk2_16);
         megjegyzes = findViewById(R.id.megjegyzes_mezo);
     }
 

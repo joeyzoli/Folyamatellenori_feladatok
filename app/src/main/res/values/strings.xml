@@ -62,20 +62,40 @@
 
     <string-array name="paszta">
         <item>-</item>
-        <item>999000221</item>
-        <item>51300065</item>
-        <item>999000222</item>
-        <item>320-750-38</item>
-        <item>448-000-53</item>
-        <item>448-000-54</item>
-        <item>448-000-55</item>
-        <item>448-000-56</item>
-        <item>320-764-89</item>
-        <item>999000223</item>
-        <item>23333127</item>
+        <item>999000221 - PASZTA ALPHA CVP-390 TYPE4 155717</item>
+        <item>51300065 - PASZTA KOKI S3X58-M406L-6 ECO+FORR.PASZT</item>
+        <item>999000222 - PASZTA KOKI S3X58-M500C-7</item>
+        <item>320-750-38 - ÓNPASZTA SB6N58-M500SI ALACSONY OLVADÁSP.</item>
+        <item>448-000-53 - ÓNPASZTA SS4-M953I (KOKI) 14510</item>
+        <item>448-000-54 - PASZTA KOKI S3X58M406L-L3</item>
+        <item>448-000-55 - PASZTA SENJU M705-GRN360-K1V</item>
+        <item>448-000-56 - PASZTA SENJU M31-GRN360-K1MK-V</item>
+        <item>320-764-89 - AIM NC257 SAC105 T4 J35</item>
+        <item>999000223 - M8-REL61TM-38-J5</item>
+        <item>23333127 - SN62 MP101 AGS 89,5</item>
     </string-array>
 
-    <string-array name="ragaszto">
+    <string-array name="ragaszto_1">
+        <item>-</item>
+        <item>PD944</item>
+        <item>PD945</item>
+        <item>PD955M</item>
+        <item>PD955 PY</item>
+        <item>PD860002 </item>
+        <item>ECCOBOND D125F</item>
+    </string-array>
+
+    <string-array name="ragaszto_2">
+        <item>-</item>
+        <item>PD944</item>
+        <item>PD945</item>
+        <item>PD955M</item>
+        <item>PD955 PY</item>
+        <item>PD860002 </item>
+        <item>ECCOBOND D125F</item>
+    </string-array>
+
+    <string-array name="ragaszto_3">
         <item>-</item>
         <item>PD944</item>
         <item>PD945</item>

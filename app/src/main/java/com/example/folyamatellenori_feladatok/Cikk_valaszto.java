@@ -82,6 +82,12 @@ public class Cikk_valaszto extends AppCompatActivity
         }
     }
 
+    public void nxt_valsztas(View view)
+    {
+        Intent intent = new Intent(Cikk_valaszto.this, nxt_valasztas.class);
+        startActivity(intent);
+    }
+
     public void ujoldal_folytatas(View view)
     {
         if (valasztott_nxt.size() < 1) {

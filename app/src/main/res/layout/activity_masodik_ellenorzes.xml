@@ -151,7 +151,41 @@
                 android:id="@+id/csekk2_6"
                 android:layout_width="152dp"
                 android:layout_height="wrap_content"
-                android:entries="@array/ragaszto"
+                android:entries="@array/ragaszto_1"
+                android:ems="10"
+                android:gravity="start|top" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView android:text="Ragasztó típus, lejárati idő"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/csekk2_15"
+                android:layout_width="152dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/ragaszto_2"
+                android:ems="10"
+                android:gravity="start|top" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView android:text="Ragasztó típus, lejárati idő"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/csekk2_16"
+                android:layout_width="152dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/ragaszto_3"
                 android:ems="10"
                 android:gravity="start|top" />
         </TableRow>
@@ -333,6 +367,8 @@
                 android:id="@+id/nxt_gomb2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_dark"
+                android:textColor="@android:color/black"
                 android:onClick="nxt"
                 android:text="@string/nxt_v_laszt_s" />
             <Button
