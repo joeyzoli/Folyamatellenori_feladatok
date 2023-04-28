@@ -113,7 +113,7 @@ public class masodik_ellenorzes extends AppCompatActivity
                             ",Csekk10,Csekk11,Csekk12,Csekk13,Csekk14,Csekk15,Csekk16, Megjegyzes) Values('" + MainActivity.Nev + "', '" + MainActivity.Datum +
                             "', '" + nxt_mezo.getText().toString() + "', '" + cikkszam.getText().toString() + "','"+ gomb1.getText().toString() + "','"+ gomb2.getText().toString() +
                             "','"+ gomb3.getSelectedItem().toString() + "','"+ gomb4.getText().toString() +"','"+ gomb5.getText().toString() +"','"+ gomb6.getSelectedItem().toString() +"','"+
-                            gomb6.getSelectedItem().toString() +"','"+ gomb6.getSelectedItem().toString() +"','"+
+                            gomb15.getSelectedItem().toString() +"','"+ gomb16.getSelectedItem().toString() +"','"+
                             gomb7.getText().toString() +"','"+gomb8.getText().toString() +"','"+gomb9.getText().toString() +"','"+gomb10.getText().toString() +"','"+
                             gomb11.getText().toString() +"','"+gomb12.getText().toString() +"','"+gomb13.getText().toString() +"','"+gomb14.getText().toString() +"','"+
                             megjegyzes.getText().toString() + "')";
@@ -125,7 +125,6 @@ public class masodik_ellenorzes extends AppCompatActivity
                 System.out.println(e);
                 e.printStackTrace();
             }
-
             return info;
         }
     }
@@ -180,7 +179,7 @@ public class masodik_ellenorzes extends AppCompatActivity
 
                 synchronized(zar_3)
                 {
-                    zar_3.notify();		// Értesítjük a zar_2-t, hogy mehet
+                    zar_3.notify();		// Értesítjük a zar_3-t, hogy mehet
                 }
             }
             catch (Exception e) {
