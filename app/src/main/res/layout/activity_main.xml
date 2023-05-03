@@ -33,18 +33,15 @@
         android:layout_y="294dp"
         android:text="@string/instruktor" />
 
-    <EditText
+    <Spinner
         android:id="@+id/instruktor_mezo"
-        android:layout_width="wrap_content"
+        android:layout_width="212dp"
         android:layout_height="wrap_content"
         android:layout_x="163dp"
         android:layout_y="271dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
         android:minHeight="48dp"
-        tools:ignore="LabelFor,SpeakableTextPresentCheck"
-        android:autofillHints="" />
+        android:entries="@array/instruktor"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView3"
@@ -54,16 +51,13 @@
         android:layout_y="366dp"
         android:text="@string/m_szakvezet" />
 
-    <EditText
+    <Spinner
         android:id="@+id/muvez_mezo"
-        android:layout_width="wrap_content"
+        android:layout_width="218dp"
         android:layout_height="wrap_content"
         android:layout_x="163dp"
         android:layout_y="354dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
+        android:entries="@array/muvez"
         android:minHeight="48dp"
         tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 

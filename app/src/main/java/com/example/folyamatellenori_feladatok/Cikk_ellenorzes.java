@@ -1,18 +1,15 @@
 package com.example.folyamatellenori_feladatok;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -25,6 +22,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -41,11 +40,13 @@ public class Cikk_ellenorzes extends AppCompatActivity
     TextView idoo1;TextView idoo2;TextView idoo3;TextView idoo4;TextView idoo5;TextView idoo6;TextView idoo7;TextView idoo8;TextView idoo9;TextView idoo10;TextView idoo11;TextView idoo12;
     TextView idoo13;TextView idoo14;TextView idoo15;TextView idoo16;
     int letezik = 0;
-    private static Object zar_4 = new Object();
-    ArrayList<String> kepnev = new ArrayList<>();
-    ArrayList<Uri> kephely = new ArrayList<>();
+    TextView nev;
+    private static final Object zar_4 = new Object();
+    static ArrayList<String> kepnev = new ArrayList<>();
+    static ArrayList<String> kephely = new ArrayList<>();
     private Button buttonBrowse;
     int SELECT_PICTURE = 200;
+    Uri kepuri;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,9 @@ public class Cikk_ellenorzes extends AppCompatActivity
         nxt_mezo.setTextColor(Color.BLUE);
         cikkszam.setText(cik);
         cikkszam.setTextColor(Color.BLUE);
+        nev = findViewById(R.id.nev4_mezo);
+        nev.setText(MainActivity.Nev);
+        nev.setTextColor(Color.BLUE);
         muszakido();
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("label", cikkszam.getText().toString());
@@ -78,13 +82,10 @@ public class Cikk_ellenorzes extends AppCompatActivity
         }
         buttonBrowse = (Button) findViewById(R.id.kep_gomb);
         buttonBrowse.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 imageChooser();
-                //onActivityResult(MY_REQUEST_CODE_PERMISSION, MY_RESULT_CODE_FILECHOOSER, this);
             }
-
         });
     }
 
@@ -176,10 +177,31 @@ public class Cikk_ellenorzes extends AppCompatActivity
                     }
                     PreparedStatement statement = connection.prepareStatement(sql);
                     statement.executeUpdate();
+
+                }/*
+                for(int szamlalo = 0; szamlalo < kephely.size(); szamlalo++) {
+                    PreparedStatement stmt = null;
+                    //File image = new File(kephely.get(szamlalo));
+                    //FileInputStream fis = new FileInputStream (image);
+                    //InputStream fis = getContentResolver().openInputStream(kepuri);
+                    String sql3 = "INSERT INTO qualitydb.Folyamatellenori_kepek(Nev, Datum, NXT, Cikkszam, Kep_nev) VALUES(?,?,?,?,?)";
+                    stmt = connection.prepareStatement(sql3);
+                    stmt.setString(1, MainActivity.Nev);
+                    stmt.setString(2, MainActivity.Datum);
+                    stmt.setString(3, nxt_mezo.getText().toString());
+                    stmt.setString(4, cikkszam.getText().toString());
+                    stmt.setString(5, kepnev.get(szamlalo));
+                    //stmt.setBinaryStream (6, fis, (int) image.length());
+                    Toast.makeText(getApplicationContext(), "Lefutott!!", Toast.LENGTH_SHORT).show();
+                    stmt.executeUpdate();
                 }
+                kephely.clear();
+                kepnev.clear();*/
             } catch (Exception e) {
                 System.out.println(e);
                 e.printStackTrace();
+                Looper.prepare();
+                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
             }
             return info;
         }
@@ -240,7 +262,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
         // create an instance of the
         // intent of the type image
         Intent i = new Intent();
-        i.setType("image/*");
+        i.setType("*/*");
         i.setAction(Intent.ACTION_GET_CONTENT);
 
         // pass the constant to compare it
@@ -256,11 +278,15 @@ public class Cikk_ellenorzes extends AppCompatActivity
             // SELECT_PICTURE constant
             if (requestCode == SELECT_PICTURE) {
                 // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
+                kepuri = data.getData();
+                if (null != kepuri) {
                     // update the preview image in the layout
                     //IVPreviewImage.setImageURI(selectedImageUri);
-                    kephely.add(selectedImageUri);
+                    String[] koztes = kepuri.getPath().split(":");
+                    kephely.add(koztes[1]);
+                    File fajl = new File(kepuri.getPath());
+                    kepnev.add(fajl.getName());
+                    Toast.makeText(getApplicationContext(), koztes[1], Toast.LENGTH_SHORT).show();
                 }
             }
         }

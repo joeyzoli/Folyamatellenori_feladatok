@@ -34,9 +34,10 @@ public class masodik_ellenorzes extends AppCompatActivity
     TextView nxt_mezo;
     TextView cikkszam;
     EditText megjegyzes;
+    TextView nev;
     private static Object zar_3 = new Object();
     static int van = 0;
-    @SuppressLint("WrongViewCast")
+    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -51,6 +52,9 @@ public class masodik_ellenorzes extends AppCompatActivity
         nxt_mezo.setTextColor(Color.BLUE);
         cikkszam.setText(cik);
         cikkszam.setTextColor(Color.BLUE);
+        nev = findViewById(R.id.nev4_mezo);
+        nev.setText(MainActivity.Nev);
+        nev.setTextColor(Color.BLUE);
         new Visszatolt_masodik().execute();
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("label", cikkszam.getText().toString());

@@ -32,11 +32,13 @@ public class Cikk_valaszto extends AppCompatActivity
 {
     Spinner spinner;
     TextView nxt_mezo3;
+    TextView nev;
     EditText ujcikk;
     static ArrayList<String[]> nxt = new ArrayList<>();
     ArrayList<String> valasztott_nxt = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
     private static Object zar_2 = new Object();
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -47,6 +49,8 @@ public class Cikk_valaszto extends AppCompatActivity
         String nxt = beillesztes.getStringExtra("Kuldo");
         nxt_mezo3.setText(nxt);
         nxt_mezo3.setTextColor(Color.BLUE);
+        nev = findViewById(R.id.nev_mezo);
+        nev.setText(MainActivity.Nev);
         melyik_nxt();
         spinner = findViewById(R.id.cikk_box);
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, valasztott_nxt);  //simple_spinner_item

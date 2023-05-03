@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,12 +21,15 @@ import java.util.Map;
 public class nxt_valasztas extends AppCompatActivity
 {
     Spinner spinner;
+    TextView nev;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nxt_valasztas);
         spinner = findViewById(R.id.nxt_box);
+        nev = findViewById(R.id.nev2_mezo);
+        nev.setText(MainActivity.Nev);
     }
 
     public void ujoldal(View view)

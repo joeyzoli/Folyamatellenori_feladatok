@@ -104,4 +104,18 @@
         <item>PD860002 </item>
         <item>ECCOBOND D125F</item>
     </string-array>
+
+    <string-array name="instruktor">
+        <item>Vajda Piroska</item>
+        <item>Jávori Helga</item>
+        <item>Dékány Zsolt</item>
+        <item>Zámbóné Miklós Réka</item>
+    </string-array>
+
+    <string-array name="muvez">
+        <item>Koncz Tamás</item>
+        <item>Szabó Zoltán </item>
+        <item>Szántó Gabriella</item>
+        <item>Takács Sándor</item>
+    </string-array>
 </resources>

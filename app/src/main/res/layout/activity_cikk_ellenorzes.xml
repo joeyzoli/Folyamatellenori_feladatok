@@ -53,6 +53,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="4" />
+        <TextView
+            android:id="@+id/nev5_mezo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="5" />
     </TableRow>
 
     <TableRow

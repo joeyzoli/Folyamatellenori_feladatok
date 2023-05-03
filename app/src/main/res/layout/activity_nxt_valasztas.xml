@@ -49,6 +49,13 @@
         android:onClick="kezdooldal"
         android:text="@string/j_ellen_r" />
 
+    <TextView
+        android:id="@+id/nev2_mezo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="179dp"
+        android:layout_y="97dp" />
+
 
 </AbsoluteLayout>
-</androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>

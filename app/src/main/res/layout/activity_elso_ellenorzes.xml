@@ -8,7 +8,8 @@
     tools:context=".elso_ellenorzes"
     tools:showIn="@layout/activity_elso_ellenorzes">
 
-<AbsoluteLayout
+
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,14 +18,14 @@
 
     <TextView
         android:id="@+id/nxt_mezo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="163dp"
-        android:layout_y="35dp"
-        android:text="@string/textview"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="165dp"
-        tools:layout_editor_absoluteY="64dp" />
+        tools:layout_editor_absoluteY="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="32dp"
+        android:layout_y="33dp"
+        android:text="@string/textview" />
 
     <RadioButton
         android:id="@+id/csekk1"
@@ -135,6 +136,13 @@
         android:layout_y="561dp"
         android:onClick="nxt"
         android:text="@string/nxt_v_laszt_s2" />
+
+    <TextView
+        android:id="@+id/nev3_mezo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="254dp"
+        android:layout_y="30dp" />
 
 </AbsoluteLayout>
 </androidx.core.widget.NestedScrollView>

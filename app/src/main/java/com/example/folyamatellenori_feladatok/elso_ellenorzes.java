@@ -31,6 +31,7 @@ public class elso_ellenorzes extends AppCompatActivity
     RadioButton gomb6;RadioButton gomb7;RadioButton gomb8;RadioButton gomb9;
     AlertDialog.Builder builder;
     Button tovabb;
+    TextView nev;
     int csekkolva = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,6 +43,8 @@ public class elso_ellenorzes extends AppCompatActivity
         String nxt = beillesztes.getStringExtra("Kuldo");
         nxt_mezo.setText(nxt);
         nxt_mezo.setTextColor(Color.BLUE);
+        nev = findViewById(R.id.nev3_mezo);
+        nev.setText(MainActivity.Nev);
         letrehoz_mezok();
         tovabb = (Button) findViewById(R.id.tovabb_gomb);
         tovabb.setOnClickListener(new View.OnClickListener() {

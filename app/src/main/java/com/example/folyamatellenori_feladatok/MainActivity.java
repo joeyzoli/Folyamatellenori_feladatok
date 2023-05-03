@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity
     private EditText datum;
     private static final Object zar_1 = new Object();
     Spinner ellenor;
-    EditText instruktor;
-    EditText muvez;
+    Spinner instruktor;
+    Spinner muvez;
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd");
     Date date = new Date();
     static ArrayList<String[]> muszak = new ArrayList<>();
@@ -149,8 +149,8 @@ public class MainActivity extends AppCompatActivity
                 muvez = findViewById(R.id.muvez_mezo);
                 Nev = ellenor.getSelectedItem().toString();
                 Datum = datum.getText().toString();
-                Instruktor = instruktor.getText().toString();
-                Muvez = muvez.getText().toString();
+                Instruktor = instruktor.getSelectedItem().toString();
+                Muvez = muvez.getSelectedItem().toString();
                 Intent intent = new Intent(MainActivity.this, nxt_valasztas.class);
                 startActivity(intent);
             }
@@ -191,60 +191,4 @@ public class MainActivity extends AppCompatActivity
             return info;
         }
     }
-
-    private class Atallas_ellenorzo extends AsyncTask<String, String, String> {
-
-        private String resp;
-
-        @Override
-        protected String doInBackground(String... params) {
-            publishProgress("Sleeping..."); // Calls onProgressUpdate()
-            try {
-                int time = 1000;
-                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-                r.play();
-                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                // Vibrate for 500 milliseconds
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
-                } else {
-                    //deprecated in API 26
-                    v.vibrate(500);
-                }
-                Thread.sleep(time);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                resp = e.getMessage();
-            } catch (Exception e) {
-                e.printStackTrace();
-                resp = e.getMessage();
-            }
-            return resp;
-        }
-    }
-
-    private void runthread() {
-        Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                        Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-                        r.play();
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
 }
