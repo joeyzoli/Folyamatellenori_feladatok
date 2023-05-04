@@ -1247,7 +1247,7 @@
             android:layout_height="wrap_content"
             android:text="NXT választás"
             android:layout_column="4"
-            android:onClick="ujoldal_nxt" />
+            android:onClick="ujoldal_nxt8" />
 
         <Button
             android:id="@+id/kep_gomb"

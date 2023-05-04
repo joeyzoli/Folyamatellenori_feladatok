@@ -23,7 +23,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,10 +39,10 @@ public class Cikk_ellenorzes extends AppCompatActivity
     TextView idoo1;TextView idoo2;TextView idoo3;TextView idoo4;TextView idoo5;TextView idoo6;TextView idoo7;TextView idoo8;TextView idoo9;TextView idoo10;TextView idoo11;TextView idoo12;
     TextView idoo13;TextView idoo14;TextView idoo15;TextView idoo16;
     int letezik = 0;
-    TextView nev;
+    TextView nev5;
     private static final Object zar_4 = new Object();
     static ArrayList<String> kepnev = new ArrayList<>();
-    static ArrayList<String> kephely = new ArrayList<>();
+    static ArrayList<Uri> kephely = new ArrayList<>();
     private Button buttonBrowse;
     int SELECT_PICTURE = 200;
     Uri kepuri;
@@ -57,13 +56,14 @@ public class Cikk_ellenorzes extends AppCompatActivity
         Intent beillesztes2 = getIntent();
         String nxt = beillesztes2.getStringExtra("Kuldo");
         String cik = beillesztes2.getStringExtra("Cikkszam");
-        nxt_mezo5.setText(nxt);
+        String[] nxt2 = nxt.split(" ");
+        nxt_mezo5.setText(nxt2[0]);
         nxt_mezo5.setTextColor(Color.BLUE);
         cikkszam.setText(cik);
         cikkszam.setTextColor(Color.BLUE);
-        nev = findViewById(R.id.nev5_mezo);
-        nev.setText(MainActivity.Nev);
-        nev.setTextColor(Color.BLUE);
+        nev5 = findViewById(R.id.nev5_mezo);
+        nev5.setText(MainActivity.Nev);
+        nev5.setTextColor(Color.BLUE);
         muszakido();
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("label", cikkszam.getText().toString());
@@ -79,17 +79,17 @@ public class Cikk_ellenorzes extends AppCompatActivity
             {
                 System.out.print(e);
             }
-        }
+        }/*
         buttonBrowse = (Button) findViewById(R.id.kep_gomb);
         buttonBrowse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imageChooser();
             }
-        });
+        });*/
     }
 
-    public void ujoldal_nxt(View view)
+    public void ujoldal_nxt8(View view)
     {
         new Mentes().execute();
         Intent intent = new Intent(Cikk_ellenorzes.this, nxt_valasztas.class);
@@ -163,8 +163,8 @@ public class Cikk_ellenorzes extends AppCompatActivity
                     if(reff1.isChecked()) {
                         folyamat = "Reflow";
                     }
-                    else if(smdd1.isChecked()) {
-                        folyamat = "SMD";
+                    if(smdd1.isChecked()) {
+                        folyamat += "SMD";
                     }
                     else {
                         folyamat = "-";
@@ -189,17 +189,17 @@ public class Cikk_ellenorzes extends AppCompatActivity
                 }/*
                 for(int szamlalo = 0; szamlalo < kephely.size(); szamlalo++) {
                     PreparedStatement stmt = null;
-                    //File image = new File(kephely.get(szamlalo));
-                    //FileInputStream fis = new FileInputStream (image);
+                    File image = new File(kephely.get(szamlalo).getPath());
+                    FileInputStream fis = new FileInputStream (image);
                     //InputStream fis = getContentResolver().openInputStream(kepuri);
                     String sql3 = "INSERT INTO qualitydb.Folyamatellenori_kepek(Nev, Datum, NXT, Cikkszam, Kep_nev) VALUES(?,?,?,?,?)";
                     stmt = connection.prepareStatement(sql3);
                     stmt.setString(1, MainActivity.Nev);
                     stmt.setString(2, MainActivity.Datum);
-                    stmt.setString(3, nxt_mezo.getText().toString());
+                    stmt.setString(3, nxt_mezo5.getText().toString());
                     stmt.setString(4, cikkszam.getText().toString());
                     stmt.setString(5, kepnev.get(szamlalo));
-                    //stmt.setBinaryStream (6, fis, (int) image.length());
+                    stmt.setBinaryStream (6, fis, (int) image.length());
                     Toast.makeText(getApplicationContext(), "Lefutott!!", Toast.LENGTH_SHORT).show();
                     stmt.executeUpdate();
                 }
@@ -290,11 +290,11 @@ public class Cikk_ellenorzes extends AppCompatActivity
                 if (null != kepuri) {
                     // update the preview image in the layout
                     //IVPreviewImage.setImageURI(selectedImageUri);
-                    String[] koztes = kepuri.getPath().split(":");
-                    kephely.add(koztes[1]);
+                    //String[] koztes = kepuri.getPath().split(":");
+                    kephely.add(kepuri);
                     File fajl = new File(kepuri.getPath());
                     kepnev.add(fajl.getName());
-                    Toast.makeText(getApplicationContext(), koztes[1], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), kepuri.getPath(), Toast.LENGTH_SHORT).show();
                 }
             }
         }
