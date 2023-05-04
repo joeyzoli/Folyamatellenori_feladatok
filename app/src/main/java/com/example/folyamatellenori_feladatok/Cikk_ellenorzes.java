@@ -35,7 +35,7 @@ import java.util.Map;
 
 public class Cikk_ellenorzes extends AppCompatActivity
 {
-    TextView nxt_mezo;
+    TextView nxt_mezo5;
     TextView cikkszam;
     TextView idoo1;TextView idoo2;TextView idoo3;TextView idoo4;TextView idoo5;TextView idoo6;TextView idoo7;TextView idoo8;TextView idoo9;TextView idoo10;TextView idoo11;TextView idoo12;
     TextView idoo13;TextView idoo14;TextView idoo15;TextView idoo16;
@@ -52,16 +52,16 @@ public class Cikk_ellenorzes extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cikk_ellenorzes);
-        nxt_mezo = findViewById(R.id.nxt_mezo4);
+        nxt_mezo5 = findViewById(R.id.nxt_mezo4);
         cikkszam = findViewById(R.id.cikkszam_mezo4);
         Intent beillesztes2 = getIntent();
         String nxt = beillesztes2.getStringExtra("Kuldo");
         String cik = beillesztes2.getStringExtra("Cikkszam");
-        nxt_mezo.setText(nxt);
-        nxt_mezo.setTextColor(Color.BLUE);
+        nxt_mezo5.setText(nxt);
+        nxt_mezo5.setTextColor(Color.BLUE);
         cikkszam.setText(cik);
         cikkszam.setTextColor(Color.BLUE);
-        nev = findViewById(R.id.nev4_mezo);
+        nev = findViewById(R.id.nev5_mezo);
         nev.setText(MainActivity.Nev);
         nev.setTextColor(Color.BLUE);
         muszakido();
@@ -93,6 +93,14 @@ public class Cikk_ellenorzes extends AppCompatActivity
     {
         new Mentes().execute();
         Intent intent = new Intent(Cikk_ellenorzes.this, nxt_valasztas.class);
+        startActivity(intent);
+    }
+
+    public void ujoldal_hibaleiras(View view)
+    {
+        new Mentes().execute();
+        Intent intent = new Intent(Cikk_ellenorzes.this, Hiba_leiras.class);
+        intent.putExtra("Kuldo", nxt_mezo5.getText().toString() );
         startActivity(intent);
     }
 
@@ -128,7 +136,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
                 TableLayout jtable = (TableLayout) findViewById(R.id.tabla);
                 String folyamat = "";
                 String sql2 = "select * from qualitydb.Folyamatellenori_nxt where Nev ='" + MainActivity.Nev + "' and " +
-                        "Datum = '" + MainActivity.Datum + "' and NXT = '"+ nxt_mezo.getText().toString() +"'";
+                        "Datum = '" + MainActivity.Datum + "' and NXT = '"+ nxt_mezo5.getText().toString() +"'";
                 PreparedStatement statement2 = connection.prepareStatement(sql2);
                 statement2.execute();
                 ResultSet eredmeny2 = statement2.getResultSet();
@@ -166,12 +174,12 @@ public class Cikk_ellenorzes extends AppCompatActivity
                     if (letezik == 1) {
                         sql = "update qualitydb.Folyamatellenori_nxt set Folyamat = '"+ folyamat +"', Cikkszam = '"+ adat1 +"', Batch = '"+ adat2 +"', Vizsgalt_db = '"+ adat3 +
                                 "', Hiba_db = '"+ adat4 +"', Hiba_arany = '"+ adat5 +"' where Nev = '"+ MainActivity.Nev +"' and Datum = '"+ MainActivity.Datum +"' and " +
-                                " NXT = '"+ nxt_mezo.getText().toString() +"' and Muszak_ido = '"+ ell_ideje +"'" ;
+                                " NXT = '"+ nxt_mezo5.getText().toString() +"' and Muszak_ido = '"+ ell_ideje +"'" ;
 
                     }
                     else {
                         sql = "INSERT INTO qualitydb.Folyamatellenori_nxt (Nev,Datum,NXT,Muszak_ido,Folyamat,Cikkszam,Batch,Vizsgalt_db,Hiba_db,Hiba_arany) " +
-                                "Values('" + MainActivity.Nev + "','" + MainActivity.Datum + "','" + nxt_mezo.getText().toString() + "','" + ell_ideje +
+                                "Values('" + MainActivity.Nev + "','" + MainActivity.Datum + "','" + nxt_mezo5.getText().toString() + "','" + ell_ideje +
                                 "','" + folyamat + "','" + adat1 + "','" + adat2 + "','" + adat3 +
                                 "','" + adat4 + "','" + adat5 + "')";
                     }
@@ -216,7 +224,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
 
                 String sql = "select * from qualitydb.Folyamatellenori_nxt where Nev ='" + MainActivity.Nev + "' and " +
-                        "Datum = '" + MainActivity.Datum + "' and NXT = '" + nxt_mezo.getText().toString() + "'";
+                        "Datum = '" + MainActivity.Datum + "' and NXT = '" + nxt_mezo5.getText().toString() + "'";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet eredmeny = statement.getResultSet();
