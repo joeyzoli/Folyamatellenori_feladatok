@@ -41,11 +41,11 @@ public class Cikk_ellenorzes extends AppCompatActivity
     int letezik = 0;
     TextView nev5;
     private static final Object zar_4 = new Object();
-    static ArrayList<String> kepnev = new ArrayList<>();
-    static ArrayList<Uri> kephely = new ArrayList<>();
-    private Button buttonBrowse;
-    int SELECT_PICTURE = 200;
-    Uri kepuri;
+    //static ArrayList<String> kepnev = new ArrayList<>();
+    //static ArrayList<Uri> kephely = new ArrayList<>();
+    //private Button buttonBrowse;
+    //int SELECT_PICTURE = 200;
+    //Uri kepuri;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -208,8 +208,6 @@ public class Cikk_ellenorzes extends AppCompatActivity
             } catch (Exception e) {
                 System.out.println(e);
                 e.printStackTrace();
-                Looper.prepare();
-                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
             }
             return info;
         }
@@ -240,9 +238,9 @@ public class Cikk_ellenorzes extends AppCompatActivity
                         EditText vizsgaltt = (EditText) row.getChildAt(5);
                         EditText hibaa = (EditText) row.getChildAt(6);
                         EditText aranyy = (EditText) row.getChildAt(7);
-                        if (eredmeny.getString(5).equals("Reflow")) {
+                        if (eredmeny.getString(5).contains("Reflow")) {
                             reff1.setChecked(true);
-                        } else if (eredmeny.getString(5).equals("SMD")) {
+                        } if (eredmeny.getString(5).contains("SMD")) {
                             smdd1.setChecked(true);
                         }
                         cikkk.setText(eredmeny.getString(6));
@@ -264,14 +262,14 @@ public class Cikk_ellenorzes extends AppCompatActivity
             return info;
         }
     }
-
+    /*
     void imageChooser() {
 
         // create an instance of the
         // intent of the type image
         Intent i = new Intent();
-        i.setType("*/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
+        //i.setType("image/*");
+        //i.setAction(Intent.ACTION_GET_CONTENT);
 
         // pass the constant to compare it
         // with the returned requestCode
@@ -298,7 +296,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
                 }
             }
         }
-    }
+    }*/
 
     @Override
     public void onBackPressed() {

@@ -107,8 +107,6 @@ public class Hiba_leiras extends AppCompatActivity {
             } catch (Exception e) {
                 System.out.println(e);
                 e.printStackTrace();
-                Looper.prepare();
-                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
             }
             return info;
         }
