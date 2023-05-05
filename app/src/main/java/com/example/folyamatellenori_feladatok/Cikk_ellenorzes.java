@@ -5,11 +5,14 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,6 +26,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -41,11 +46,11 @@ public class Cikk_ellenorzes extends AppCompatActivity
     int letezik = 0;
     TextView nev5;
     private static final Object zar_4 = new Object();
-    //static ArrayList<String> kepnev = new ArrayList<>();
-    //static ArrayList<Uri> kephely = new ArrayList<>();
-    //private Button buttonBrowse;
-    //int SELECT_PICTURE = 200;
-    //Uri kepuri;
+    static ArrayList<String> kepnev = new ArrayList<>();
+    static ArrayList<Uri> kephely = new ArrayList<>();
+    private Button kepgomb;
+    int SELECT_PICTURE = 200;
+    Uri kepuri;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,14 +84,14 @@ public class Cikk_ellenorzes extends AppCompatActivity
             {
                 System.out.print(e);
             }
-        }/*
-        buttonBrowse = (Button) findViewById(R.id.kep_gomb);
-        buttonBrowse.setOnClickListener(new View.OnClickListener() {
+        }
+        kepgomb = (Button) findViewById(R.id.kep_gomb);
+        kepgomb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imageChooser();
             }
-        });*/
+        });
     }
 
     public void ujoldal_nxt8(View view)
@@ -143,12 +148,12 @@ public class Cikk_ellenorzes extends AppCompatActivity
                 if (eredmeny2.next()) {
                     letezik = 1;
                 }
-                for(int szamlalo = 2; szamlalo < jtable.getChildCount(); szamlalo++){
+                for(int szamlalo = 2; szamlalo < jtable.getChildCount()-1; szamlalo++){
                     TableRow row = (TableRow) jtable.getChildAt(szamlalo);
                     TextView ido1 = (TextView) row.getChildAt(0);
                     String ell_ideje = ido1.getText().toString();
-                    CheckBox   reff1 = (CheckBox  ) row.getChildAt(1);
-                    CheckBox   smdd1 = (CheckBox  ) row.getChildAt(2);
+                    CheckBox   reff1 = (CheckBox) row.getChildAt(1);
+                    CheckBox   smdd1 = (CheckBox) row.getChildAt(2);
                     EditText cikkk = (EditText) row.getChildAt(3);
                     EditText batchh = (EditText) row.getChildAt(4);
                     EditText vizsgaltt = (EditText) row.getChildAt(5);
@@ -186,28 +191,29 @@ public class Cikk_ellenorzes extends AppCompatActivity
                     PreparedStatement statement = connection.prepareStatement(sql);
                     statement.executeUpdate();
 
-                }/*
+                }
                 for(int szamlalo = 0; szamlalo < kephely.size(); szamlalo++) {
                     PreparedStatement stmt = null;
-                    File image = new File(kephely.get(szamlalo).getPath());
-                    FileInputStream fis = new FileInputStream (image);
-                    //InputStream fis = getContentResolver().openInputStream(kepuri);
-                    String sql3 = "INSERT INTO qualitydb.Folyamatellenori_kepek(Nev, Datum, NXT, Cikkszam, Kep_nev) VALUES(?,?,?,?,?)";
+                    File image = new File(getRealPathFromURI(kephely.get(szamlalo))); //kephely.get(szamlalo).getPath() .toString()
+                    FileInputStream fis = new FileInputStream(image); // getContentResolver().openInputStream(uri);
+                    //InputStream fis = getContentResolver().openInputStream(kephely.get(szamlalo));
+                    String sql3 = "INSERT INTO qualitydb.Folyamatellenori_kepek (Nev, Datum, NXT, Cikkszam, Kep_nev) VALUES(?,?,?,?,?)";
                     stmt = connection.prepareStatement(sql3);
                     stmt.setString(1, MainActivity.Nev);
                     stmt.setString(2, MainActivity.Datum);
                     stmt.setString(3, nxt_mezo5.getText().toString());
                     stmt.setString(4, cikkszam.getText().toString());
-                    stmt.setString(5, kepnev.get(szamlalo));
+                    stmt.setString(5, image.getName());
                     stmt.setBinaryStream (6, fis, (int) image.length());
-                    Toast.makeText(getApplicationContext(), "Lefutott!!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Lefutott!!", Toast.LENGTH_SHORT).show();
                     stmt.executeUpdate();
                 }
                 kephely.clear();
-                kepnev.clear();*/
+                kepnev.clear();
             } catch (Exception e) {
                 System.out.println(e);
                 e.printStackTrace();
+                Log.e(e.toString(), e.toString());
             }
             return info;
         }
@@ -262,41 +268,45 @@ public class Cikk_ellenorzes extends AppCompatActivity
             return info;
         }
     }
-    /*
+
     void imageChooser() {
-
-        // create an instance of the
-        // intent of the type image
         Intent i = new Intent();
-        //i.setType("image/*");
-        //i.setAction(Intent.ACTION_GET_CONTENT);
-
-        // pass the constant to compare it
-        // with the returned requestCode
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK) {
-
-            // compare the resultCode with the
-            // SELECT_PICTURE constant
             if (requestCode == SELECT_PICTURE) {
-                // Get the url of the image from data
                 kepuri = data.getData();
                 if (null != kepuri) {
                     // update the preview image in the layout
-                    //IVPreviewImage.setImageURI(selectedImageUri);
+                    //IVPreviewImage.setImageURI(kepuri);
                     //String[] koztes = kepuri.getPath().split(":");
                     kephely.add(kepuri);
-                    File fajl = new File(kepuri.getPath());
-                    kepnev.add(fajl.getName());
-                    Toast.makeText(getApplicationContext(), kepuri.getPath(), Toast.LENGTH_SHORT).show();
+                    //File fajl = new File(kepuri.getPath());
+                    //kepnev.add(fajl.getName());
+                    //Toast.makeText(getApplicationContext(), kepuri.getPath(), Toast.LENGTH_SHORT).show();
                 }
             }
         }
-    }*/
+    }
+
+    private String getRealPathFromURI(Uri contentURI) {
+        String result;
+        Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
+        if (cursor == null) { // Source is Dropbox or other similar local file path
+            result = contentURI.getPath();
+        } else {
+            cursor.moveToFirst();
+            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+            result = cursor.getString(idx);
+            cursor.close();
+        }
+        return result;
+    }
 
     @Override
     public void onBackPressed() {
