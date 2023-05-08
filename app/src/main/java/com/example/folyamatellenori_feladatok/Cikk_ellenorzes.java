@@ -167,9 +167,12 @@ public class Cikk_ellenorzes extends AppCompatActivity
 
                     if(reff1.isChecked()) {
                         folyamat = "Reflow";
+                        if(smdd1.isChecked()) {
+                            folyamat += "SMD";
+                        }
                     }
-                    if(smdd1.isChecked()) {
-                        folyamat += "SMD";
+                    else if(smdd1.isChecked()) {
+                        folyamat = "SMD";
                     }
                     else {
                         folyamat = "-";
@@ -194,8 +197,8 @@ public class Cikk_ellenorzes extends AppCompatActivity
                 }
                 for(int szamlalo = 0; szamlalo < kephely.size(); szamlalo++) {
                     PreparedStatement stmt = null;
-                    File image = new File(getRealPathFromURI(kephely.get(szamlalo))); //kephely.get(szamlalo).getPath() .toString()
-                    FileInputStream fis = new FileInputStream(image); // getContentResolver().openInputStream(uri);
+                    File image = new File(getPathFromURI(kephely.get(szamlalo))); //kephely.get(szamlalo).getPath() .toString()
+                    //FileInputStream fis = new FileInputStream(image); // getContentResolver().openInputStream(uri);
                     //InputStream fis = getContentResolver().openInputStream(kephely.get(szamlalo));
                     String sql3 = "INSERT INTO qualitydb.Folyamatellenori_kepek (Nev, Datum, NXT, Cikkszam, Kep_nev) VALUES(?,?,?,?,?)";
                     stmt = connection.prepareStatement(sql3);
@@ -204,7 +207,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
                     stmt.setString(3, nxt_mezo5.getText().toString());
                     stmt.setString(4, cikkszam.getText().toString());
                     stmt.setString(5, image.getName());
-                    stmt.setBinaryStream (6, fis, (int) image.length());
+                    //stmt.setBinaryStream (6, fis, (int) image.length());
                     //Toast.makeText(getApplicationContext(), "Lefutott!!", Toast.LENGTH_SHORT).show();
                     stmt.executeUpdate();
                 }
@@ -294,18 +297,16 @@ public class Cikk_ellenorzes extends AppCompatActivity
         }
     }
 
-    private String getRealPathFromURI(Uri contentURI) {
-        String result;
-        Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
-        if (cursor == null) { // Source is Dropbox or other similar local file path
-            result = contentURI.getPath();
-        } else {
-            cursor.moveToFirst();
-            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-            result = cursor.getString(idx);
-            cursor.close();
+    public String getPathFromURI(Uri contentUri) {
+        String res = null;
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+        if (cursor.moveToFirst()) {
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            res = cursor.getString(column_index);
         }
-        return result;
+        cursor.close();
+        return res;
     }
 
     @Override
