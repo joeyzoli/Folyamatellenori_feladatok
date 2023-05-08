@@ -11,17 +11,21 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
+import android.os.Parcel;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
@@ -35,6 +39,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Cikk_ellenorzes extends AppCompatActivity
@@ -49,8 +54,9 @@ public class Cikk_ellenorzes extends AppCompatActivity
     static ArrayList<String> kepnev = new ArrayList<>();
     static ArrayList<Uri> kephely = new ArrayList<>();
     private Button kepgomb;
-    int SELECT_PICTURE = 200;
-    Uri kepuri;
+    int PICK_IMAGE = 200;
+    Uri imageUri;
+    ImageView imageView;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +95,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
         kepgomb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageChooser();
+                openGallery();
             }
         });
     }
@@ -197,18 +203,17 @@ public class Cikk_ellenorzes extends AppCompatActivity
                 }
                 for(int szamlalo = 0; szamlalo < kephely.size(); szamlalo++) {
                     PreparedStatement stmt = null;
-                    File image = new File(getPathFromURI(kephely.get(szamlalo))); //kephely.get(szamlalo).getPath() .toString()
-                    //FileInputStream fis = new FileInputStream(image); // getContentResolver().openInputStream(uri);
-                    //InputStream fis = getContentResolver().openInputStream(kephely.get(szamlalo));
-                    String sql3 = "INSERT INTO qualitydb.Folyamatellenori_kepek (Nev, Datum, NXT, Cikkszam, Kep_nev) VALUES(?,?,?,?,?)";
+                    String rendeshely = kephely.get(szamlalo).getPath();
+                    File image = new File(rendeshely); //kephely.get(szamlalo).getPath() .toString()
+                    InputStream fis = getContentResolver().openInputStream(kephely.get(szamlalo));
+                    String sql3 = "INSERT INTO qualitydb.Folyamatellenori_kepek (Nev, Datum, NXT, Cikkszam, Kep_nev, Kep) VALUES(?,?,?,?,?,?)";
                     stmt = connection.prepareStatement(sql3);
                     stmt.setString(1, MainActivity.Nev);
                     stmt.setString(2, MainActivity.Datum);
                     stmt.setString(3, nxt_mezo5.getText().toString());
                     stmt.setString(4, cikkszam.getText().toString());
                     stmt.setString(5, image.getName());
-                    //stmt.setBinaryStream (6, fis, (int) image.length());
-                    //Toast.makeText(getApplicationContext(), "Lefutott!!", Toast.LENGTH_SHORT).show();
+                    stmt.setBinaryStream (6, fis, (int) image.length());
                     stmt.executeUpdate();
                 }
                 kephely.clear();
@@ -272,41 +277,21 @@ public class Cikk_ellenorzes extends AppCompatActivity
         }
     }
 
-    void imageChooser() {
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+    private void openGallery() {
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, PICK_IMAGE);
     }
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-            if (requestCode == SELECT_PICTURE) {
-                kepuri = data.getData();
-                if (null != kepuri) {
-                    // update the preview image in the layout
-                    //IVPreviewImage.setImageURI(kepuri);
-                    //String[] koztes = kepuri.getPath().split(":");
-                    kephely.add(kepuri);
-                    //File fajl = new File(kepuri.getPath());
-                    //kepnev.add(fajl.getName());
-                    //Toast.makeText(getApplicationContext(), kepuri.getPath(), Toast.LENGTH_SHORT).show();
-                }
-            }
+        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+            imageUri = data.getData();
+            kephely.add(imageUri);
+            //imageView.setImageURI(imageUri);
+            Toast.makeText(getApplicationContext(), "Lefutott!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), imageUri.getPath(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), imageUri.toString(), Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public String getPathFromURI(Uri contentUri) {
-        String res = null;
-        String[] proj = {MediaStore.Images.Media.DATA};
-        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
-        if (cursor.moveToFirst()) {
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            res = cursor.getString(column_index);
-        }
-        cursor.close();
-        return res;
     }
 
     @Override
