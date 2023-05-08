@@ -204,7 +204,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
                 for(int szamlalo = 0; szamlalo < kephely.size(); szamlalo++) {
                     PreparedStatement stmt = null;
                     String rendeshely = kephely.get(szamlalo).getPath();
-                    File image = new File(rendeshely); //kephely.get(szamlalo).getPath() .toString()
+                    File image = new File(kephely.get(szamlalo).getPath()); //kephely.get(szamlalo).getPath() .toString()
                     InputStream fis = getContentResolver().openInputStream(kephely.get(szamlalo));
                     String sql3 = "INSERT INTO qualitydb.Folyamatellenori_kepek (Nev, Datum, NXT, Cikkszam, Kep_nev, Kep) VALUES(?,?,?,?,?,?)";
                     stmt = connection.prepareStatement(sql3);
@@ -288,9 +288,8 @@ public class Cikk_ellenorzes extends AppCompatActivity
             imageUri = data.getData();
             kephely.add(imageUri);
             //imageView.setImageURI(imageUri);
-            Toast.makeText(getApplicationContext(), "Lefutott!!", Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), imageUri.getPath(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), imageUri.toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), imageUri.getPath(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), imageUri.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
