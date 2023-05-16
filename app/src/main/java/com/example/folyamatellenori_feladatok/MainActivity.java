@@ -1,62 +1,30 @@
 package com.example.folyamatellenori_feladatok;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
-import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.ContentResolver;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.IntentSender;
-import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.database.DatabaseErrorHandler;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
+import android.graphics.Color;
+import android.media.AudioAttributes;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.UserHandle;
-import android.os.Vibrator;
-import android.util.Log;
-import android.view.Display;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -73,6 +41,7 @@ public class MainActivity extends AppCompatActivity
     static final String Felhasznalo = "veasnxt";
     static final String Jelszo = "Veas8000";
     static final String IP = "jdbc:mysql://172.20.22.68?autoReconnect=true&useSSL=false";
+    static final String CHANNEL_ID = "1000";
     static String Nev;
     static String Datum;
     static String Instruktor;
@@ -93,8 +62,11 @@ public class MainActivity extends AppCompatActivity
     RadioButton De;
     RadioButton Du;
     RadioButton Ej;
+    static String melyiknxt = "";
     private int muszakell = 0;
     static Timer timer = new Timer();
+    public static final String NOTIFICATION_CHANNEL_ID = "10001" ;
+    private final static String default_notification_channel_id = "default";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -117,6 +89,7 @@ public class MainActivity extends AppCompatActivity
         ellenor = findViewById(R.id.nev_box);
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ellenorok);
         ellenor.setAdapter(arrayAdapter);
+        //addNotification();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -192,11 +165,6 @@ public class MainActivity extends AppCompatActivity
         @Override
         protected Map<String, String> doInBackground(Void... voids) {
             Map<String, String> info = new HashMap<>();
-            /*try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }*/
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
 
                 String sql = "select Nev from qualitydb.Alapadatok_ellenorok where 3 = 3";
@@ -230,7 +198,7 @@ public class MainActivity extends AppCompatActivity
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }*/
-            Looper.prepare();
+
             try (Connection connection = DriverManager.getConnection(MainActivity.IP, MainActivity.Felhasznalo, MainActivity.Jelszo)) {
 
                 String sql = "SELECT\n" +
@@ -252,33 +220,16 @@ public class MainActivity extends AppCompatActivity
                         "INNER JOIN veasnxtmonitor.allas_tabla ON veasnxtmonitor.allas_tabla.id = veasnxtmonitor.folyamat_tabla.allas_id\n" +
                         "INNER JOIN veasnxtmonitor.allas_ok_tabla ON veasnxtmonitor.allas_ok_tabla.id_allas = veasnxtmonitor.folyamat_tabla.allas_id AND veasnxtmonitor.allas_ok_tabla.id = veasnxtmonitor.folyamat_tabla.allas_ok_id\n" +
                         "where ((allas_id = 1 and (allas_ok_id = 3 or allas_ok_id = 10)) or (allas_id = 3 and allas_ok_id = 5))\n" +
-                        " and start_tstamp > date_add(now(),interval -130 MINUTE)";
+                        " and start_tstamp > date_add(now(),interval -230 MINUTE)";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet eredmeny = statement.getResultSet();
                 if (eredmeny.next()) {
-                    Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                    Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-                    r.play();
-                    Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    vb.vibrate(2000);
-                    System.out.println("Lefutott a szál");
+                    melyiknxt = eredmeny.getString(3);
                     runOnUiThread(new Runnable(){
                         public void run() {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                            try {
-                                builder.setMessage("Átállás a következő soron:"+ eredmeny.getString(3))
-                                        .setCancelable(false)
-                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int id) {
-                                                //do things
-                                            }
-                                        });
-                            } catch (SQLException e) {
-                                e.printStackTrace();
-                            }
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            addNotification();
+
                         }
                     });
                 }
@@ -289,4 +240,35 @@ public class MainActivity extends AppCompatActivity
             return info;
         }
     }
+
+    public void addNotification() {
+        //Uri sound = Uri. parse (ContentResolver. SCHEME_ANDROID_RESOURCE + "://" + getPackageName() + "/raw/quite_impressed.mp3" ) ;
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity. this,
+                default_notification_channel_id )
+                .setSmallIcon(R.drawable. ic_launcher_foreground )
+                .setContentTitle( "Átállás" )
+                //.setSound(sound)
+                .setContentText( "Átállás a következő soron:"+ melyiknxt );
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context. NOTIFICATION_SERVICE ) ;
+        if (android.os.Build.VERSION. SDK_INT >= android.os.Build.VERSION_CODES. O ) {
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setContentType(AudioAttributes. CONTENT_TYPE_SONIFICATION )
+                    .setUsage(AudioAttributes. USAGE_ALARM )
+                    .build() ;
+            int importance = NotificationManager. IMPORTANCE_HIGH ;
+            NotificationChannel notificationChannel = new
+                    NotificationChannel( NOTIFICATION_CHANNEL_ID , "NOTIFICATION_CHANNEL_NAME" , importance) ;
+            notificationChannel.enableLights( true ) ;
+            notificationChannel.setLightColor(Color. RED ) ;
+            notificationChannel.enableVibration( true ) ;
+            notificationChannel.setVibrationPattern( new long []{ 100 , 200 , 300 , 400 , 500 , 400 , 300 , 200 , 400 }) ;
+            //notificationChannel.setSound(sound , audioAttributes) ;
+            mBuilder.setChannelId( NOTIFICATION_CHANNEL_ID ) ;
+            assert mNotificationManager != null;
+            mNotificationManager.createNotificationChannel(notificationChannel) ;
+        }
+        assert mNotificationManager != null;
+        mNotificationManager.notify(( int ) System. currentTimeMillis (), mBuilder.build()) ;
+    }
+
 }

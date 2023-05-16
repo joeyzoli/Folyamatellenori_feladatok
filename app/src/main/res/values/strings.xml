@@ -45,6 +45,9 @@
     <string name="de">De</string>
     <string name="du">Du</string>
     <string name="j">Éj</string>
+    <string name="notification_activity">NotificationView</string>
+    <string name="channel_name">Értesítés</string>
+    <string name="channel_description">Átállás a következő soron</string>
 
 
     <string-array name="nxt_box_array">
