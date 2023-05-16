@@ -1,33 +1,62 @@
 package com.example.folyamatellenori_feladatok;
 
 import android.annotation.SuppressLint;
+import android.app.Application;
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.MediaPlayer;
+import android.content.IntentFilter;
+import android.content.IntentSender;
+import android.content.ServiceConnection;
+import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.database.DatabaseErrorHandler;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.VibrationEffect;
+import android.os.Looper;
+import android.os.UserHandle;
 import android.os.Vibrator;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,6 +70,9 @@ public class MainActivity extends AppCompatActivity
     static final String URL = "jdbc:mysql://172.20.22.29?autoReconnect=true&useSSL=false";
     static final String USER = "veasquality";
     static final String PASSWORD = "kg6T$kd14TWbs9&gd";
+    static final String Felhasznalo = "veasnxt";
+    static final String Jelszo = "Veas8000";
+    static final String IP = "jdbc:mysql://172.20.22.68?autoReconnect=true&useSSL=false";
     static String Nev;
     static String Datum;
     static String Instruktor;
@@ -62,7 +94,7 @@ public class MainActivity extends AppCompatActivity
     RadioButton Du;
     RadioButton Ej;
     private int muszakell = 0;
-    private Timer timer = new Timer();
+    static Timer timer = new Timer();
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -85,15 +117,10 @@ public class MainActivity extends AppCompatActivity
         ellenor = findViewById(R.id.nev_box);
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ellenorok);
         ellenor.setAdapter(arrayAdapter);
-        //new Atallas_ellenorzo().execute();
-        /*timer.scheduleAtFixedRate(new TimerTask() {
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-                r.play();
-                Vibrator vb = (Vibrator)   getSystemService(Context.VIBRATOR_SERVICE);
-                vb.vibrate(2000);
+                new Atallas_ellenorzo().execute();
             }
         }, 0, 1*60*1000); //1 perc*/
     }
@@ -123,7 +150,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void uzenet(String hibaszoveg){
+    public void uzenet(String hibaszoveg){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage(hibaszoveg);
         alertDialogBuilder.setCancelable(false);
@@ -165,11 +192,11 @@ public class MainActivity extends AppCompatActivity
         @Override
         protected Map<String, String> doInBackground(Void... voids) {
             Map<String, String> info = new HashMap<>();
-            try {
+            /*try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
-            }
+            }*/
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
 
                 String sql = "select Nev from qualitydb.Alapadatok_ellenorok where 3 = 3";
@@ -183,6 +210,77 @@ public class MainActivity extends AppCompatActivity
                 synchronized(zar_1)
                 {
                     zar_1.notify();		// Értesítjük a zar_1-t, hogy mehet
+                }
+            }
+            catch (Exception e) {
+                System.out.println(e);
+            }
+            return info;
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public class Atallas_ellenorzo extends AsyncTask<Void, Void, Map<String, String>> {
+        @SuppressLint("WrongThread")
+        @Override
+        protected Map<String, String> doInBackground(Void... voids) {
+            Map<String, String> info = new HashMap<>();
+            /*try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }*/
+            Looper.prepare();
+            try (Connection connection = DriverManager.getConnection(MainActivity.IP, MainActivity.Felhasznalo, MainActivity.Jelszo)) {
+
+                String sql = "SELECT\n" +
+                        "veasnxtmonitor.folyamat_tabla.id,\n" +
+                        "veasnxtmonitor.folyamat_tabla.user_id,\n" +
+                        "veasnxtmonitor.folyamat_tabla.machine_id,\n" +
+                        "veasnxtmonitor.folyamat_tabla.allas_id,\n" +
+                        "veasnxtmonitor.folyamat_tabla.allas_ok_id,\n" +
+                        "veasnxtmonitor.folyamat_tabla.`comment`,\n" +
+                        "veasnxtmonitor.folyamat_tabla.start_tstamp,\n" +
+                        "veasnxtmonitor.folyamat_tabla.end_tstamp,\n" +
+                        "veasnxtmonitor.folyamat_tabla.auto_store,\n" +
+                        "veasnxtmonitor.folyamat_tabla.end_date,\n" +
+                        "veasnxtmonitor.folyamat_tabla.nxt_job_id,\n" +
+                        "veasnxtmonitor.allas_tabla.allas_name,\n" +
+                        "veasnxtmonitor.allas_ok_tabla.allas_ok_name\n" +
+                        "FROM\n" +
+                        "veasnxtmonitor.folyamat_tabla\n" +
+                        "INNER JOIN veasnxtmonitor.allas_tabla ON veasnxtmonitor.allas_tabla.id = veasnxtmonitor.folyamat_tabla.allas_id\n" +
+                        "INNER JOIN veasnxtmonitor.allas_ok_tabla ON veasnxtmonitor.allas_ok_tabla.id_allas = veasnxtmonitor.folyamat_tabla.allas_id AND veasnxtmonitor.allas_ok_tabla.id = veasnxtmonitor.folyamat_tabla.allas_ok_id\n" +
+                        "where ((allas_id = 1 and (allas_ok_id = 3 or allas_ok_id = 10)) or (allas_id = 3 and allas_ok_id = 5))\n" +
+                        " and start_tstamp > date_add(now(),interval -130 MINUTE)";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.execute();
+                ResultSet eredmeny = statement.getResultSet();
+                if (eredmeny.next()) {
+                    Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                    r.play();
+                    Vibrator vb = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    vb.vibrate(2000);
+                    System.out.println("Lefutott a szál");
+                    runOnUiThread(new Runnable(){
+                        public void run() {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                            try {
+                                builder.setMessage("Átállás a következő soron:"+ eredmeny.getString(3))
+                                        .setCancelable(false)
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                //do things
+                                            }
+                                        });
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        }
+                    });
                 }
             }
             catch (Exception e) {

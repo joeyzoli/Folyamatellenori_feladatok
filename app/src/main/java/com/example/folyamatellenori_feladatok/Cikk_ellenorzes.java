@@ -203,9 +203,9 @@ public class Cikk_ellenorzes extends AppCompatActivity
                 }
                 for(int szamlalo = 0; szamlalo < kephely.size(); szamlalo++) {
                     PreparedStatement stmt = null;
-                    String rendeshely = kephely.get(szamlalo).getPath();
-                    File image = new File(kephely.get(szamlalo).getPath()); //kephely.get(szamlalo).getPath() .toString()
-                    InputStream fis = getContentResolver().openInputStream(kephely.get(szamlalo));
+                    File image = new File(getPathFromURI(kephely.get(szamlalo))); //kephely.get(szamlalo).getPath() .toString()
+                    FileInputStream fis = new FileInputStream (image);
+                    //InputStream fis = getContentResolver().openInputStream(kephely.get(szamlalo));
                     String sql3 = "INSERT INTO qualitydb.Folyamatellenori_kepek (Nev, Datum, NXT, Cikkszam, Kep_nev, Kep) VALUES(?,?,?,?,?,?)";
                     stmt = connection.prepareStatement(sql3);
                     stmt.setString(1, MainActivity.Nev);
@@ -288,9 +288,21 @@ public class Cikk_ellenorzes extends AppCompatActivity
             imageUri = data.getData();
             kephely.add(imageUri);
             //imageView.setImageURI(imageUri);
-            //Toast.makeText(getApplicationContext(), imageUri.getPath(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), imageUri.getPath(), Toast.LENGTH_SHORT).show();
             //Toast.makeText(getApplicationContext(), imageUri.toString(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public String getPathFromURI(Uri contentUri) {
+        String res = null;
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+        if (cursor.moveToFirst()) {
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            res = cursor.getString(column_index);
+        }
+        cursor.close();
+        return res;
     }
 
     @Override
