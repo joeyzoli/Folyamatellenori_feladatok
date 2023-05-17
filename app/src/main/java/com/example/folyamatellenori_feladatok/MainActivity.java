@@ -8,6 +8,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -89,11 +93,11 @@ public class MainActivity extends AppCompatActivity
         ellenor = findViewById(R.id.nev_box);
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ellenorok);
         ellenor.setAdapter(arrayAdapter);
-        //addNotification();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 new Atallas_ellenorzo().execute();
+                //addNotification();
             }
         }, 0, 1*60*1000); //1 perc*/
     }
@@ -193,11 +197,6 @@ public class MainActivity extends AppCompatActivity
         @Override
         protected Map<String, String> doInBackground(Void... voids) {
             Map<String, String> info = new HashMap<>();
-            /*try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }*/
 
             try (Connection connection = DriverManager.getConnection(MainActivity.IP, MainActivity.Felhasznalo, MainActivity.Jelszo)) {
 
@@ -220,16 +219,49 @@ public class MainActivity extends AppCompatActivity
                         "INNER JOIN veasnxtmonitor.allas_tabla ON veasnxtmonitor.allas_tabla.id = veasnxtmonitor.folyamat_tabla.allas_id\n" +
                         "INNER JOIN veasnxtmonitor.allas_ok_tabla ON veasnxtmonitor.allas_ok_tabla.id_allas = veasnxtmonitor.folyamat_tabla.allas_id AND veasnxtmonitor.allas_ok_tabla.id = veasnxtmonitor.folyamat_tabla.allas_ok_id\n" +
                         "where ((allas_id = 1 and (allas_ok_id = 3 or allas_ok_id = 10)) or (allas_id = 3 and allas_ok_id = 5))\n" +
-                        " and start_tstamp > date_add(now(),interval -230 MINUTE)";
+                        " and start_tstamp > date_add(now(),interval -3 MINUTE)";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet eredmeny = statement.getResultSet();
-                if (eredmeny.next()) {
-                    melyiknxt = eredmeny.getString(3);
+                int szam = 0;
+                while (eredmeny.next()) {
+                    if (eredmeny.getString(3).equals("1")) {
+                        melyiknxt += "NXT01  ";
+                    }
+                    else if (eredmeny.getString(3).equals("2")) {
+                        melyiknxt += "NXT02  ";
+                    }
+                    else if (eredmeny.getString(3).equals("3")) {
+                        melyiknxt += "NXT03  ";
+                    }
+                    else if (eredmeny.getString(3).equals("4")) {
+                        melyiknxt = "NXT04  ";
+                    }
+                    else if (eredmeny.getString(3).equals("5")) {
+                        melyiknxt += "NXT05  ";
+                    }
+                    else if (eredmeny.getString(3).equals("6")) {
+                        melyiknxt += "NXT06  ";
+                    }
+                    else if (eredmeny.getString(3).equals("7")) {
+                        melyiknxt += "NXT07  ";
+                    }
+                    else if (eredmeny.getString(3).equals("8")) {
+                        melyiknxt += "NXT08  ";
+                    }
+                    else if (eredmeny.getString(3).equals("10")) {
+                        melyiknxt += "NXT09  ";
+                    }
+                    else if (eredmeny.getString(3).equals("11")) {
+                        melyiknxt += "NXT010  ";
+                    }
+                    szam++;
+                }
+                if (szam > 0) {
                     runOnUiThread(new Runnable(){
                         public void run() {
                             addNotification();
-
+                            melyiknxt = "";
                         }
                     });
                 }
@@ -243,11 +275,15 @@ public class MainActivity extends AppCompatActivity
 
     public void addNotification() {
         //Uri sound = Uri. parse (ContentResolver. SCHEME_ANDROID_RESOURCE + "://" + getPackageName() + "/raw/quite_impressed.mp3" ) ;
+        Uri sound = RingtoneManager.getActualDefaultRingtoneUri(getApplicationContext(), RingtoneManager.TYPE_RINGTONE);
+        Ringtone csengohang = RingtoneManager.getRingtone(getApplicationContext(), sound);
+        csengohang.setStreamType(AudioManager.STREAM_RING);
+        csengohang.play();
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity. this,
                 default_notification_channel_id )
                 .setSmallIcon(R.drawable. ic_launcher_foreground )
                 .setContentTitle( "Átállás" )
-                //.setSound(sound)
+                .setSound(sound)
                 .setContentText( "Átállás a következő soron:"+ melyiknxt );
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context. NOTIFICATION_SERVICE ) ;
         if (android.os.Build.VERSION. SDK_INT >= android.os.Build.VERSION_CODES. O ) {
@@ -261,8 +297,8 @@ public class MainActivity extends AppCompatActivity
             notificationChannel.enableLights( true ) ;
             notificationChannel.setLightColor(Color. RED ) ;
             notificationChannel.enableVibration( true ) ;
-            notificationChannel.setVibrationPattern( new long []{ 100 , 200 , 300 , 400 , 500 , 400 , 300 , 200 , 400 }) ;
-            //notificationChannel.setSound(sound , audioAttributes) ;
+            notificationChannel.setVibrationPattern( new long []{ 1500 , 1600 , 1700 , 1800 , 1900 , 1000 , 1900 , 1900 , 2000 }) ;
+            notificationChannel.setSound(sound , audioAttributes) ;
             mBuilder.setChannelId( NOTIFICATION_CHANNEL_ID ) ;
             assert mNotificationManager != null;
             mNotificationManager.createNotificationChannel(notificationChannel) ;
