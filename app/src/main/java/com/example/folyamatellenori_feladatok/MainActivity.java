@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity
                         "INNER JOIN veasnxtmonitor.allas_tabla ON veasnxtmonitor.allas_tabla.id = veasnxtmonitor.folyamat_tabla.allas_id\n" +
                         "INNER JOIN veasnxtmonitor.allas_ok_tabla ON veasnxtmonitor.allas_ok_tabla.id_allas = veasnxtmonitor.folyamat_tabla.allas_id AND veasnxtmonitor.allas_ok_tabla.id = veasnxtmonitor.folyamat_tabla.allas_ok_id\n" +
                         "where ((allas_id = 1 and (allas_ok_id = 3 or allas_ok_id = 10)) or (allas_id = 3 and allas_ok_id = 5))\n" +
-                        " and start_tstamp > date_add(now(),interval -3 MINUTE)";
+                        " and end_tstamp > date_add(now(),interval -3 MINUTE)";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet eredmeny = statement.getResultSet();
@@ -284,7 +284,7 @@ public class MainActivity extends AppCompatActivity
                 .setSmallIcon(R.drawable. ic_launcher_foreground )
                 .setContentTitle( "Átállás" )
                 .setSound(sound)
-                .setContentText( "Átállás a következő soron:"+ melyiknxt );
+                .setContentText( "Átállás volt a következő soron:"+ melyiknxt );
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context. NOTIFICATION_SERVICE ) ;
         if (android.os.Build.VERSION. SDK_INT >= android.os.Build.VERSION_CODES. O ) {
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
