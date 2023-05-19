@@ -6,6 +6,8 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -28,8 +30,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -204,8 +209,13 @@ public class Cikk_ellenorzes extends AppCompatActivity
                 for(int szamlalo = 0; szamlalo < kephely.size(); szamlalo++) {
                     PreparedStatement stmt = null;
                     File image = new File(getPathFromURI(kephely.get(szamlalo))); //kephely.get(szamlalo).getPath() .toString()
-                    FileInputStream fis = new FileInputStream (image);
-                    //InputStream fis = getContentResolver().openInputStream(kephely.get(szamlalo));
+                    //FileInputStream fis = new FileInputStream (image);
+                    InputStream fis = getContentResolver().openInputStream(kephely.get(szamlalo));
+                    Bitmap kep = BitmapFactory.decodeStream(fis);
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    kep.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    byte[] byteArray = stream.toByteArray();
+                    ByteArrayInputStream bais = new ByteArrayInputStream(byteArray);
                     String sql3 = "INSERT INTO qualitydb.Folyamatellenori_kepek (Nev, Datum, NXT, Cikkszam, Kep_nev, Kep) VALUES(?,?,?,?,?,?)";
                     stmt = connection.prepareStatement(sql3);
                     stmt.setString(1, MainActivity.Nev);
@@ -213,7 +223,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
                     stmt.setString(3, nxt_mezo5.getText().toString());
                     stmt.setString(4, cikkszam.getText().toString());
                     stmt.setString(5, image.getName());
-                    stmt.setBinaryStream (6, fis, (int) image.length());
+                    stmt.setBinaryStream (6, bais, byteArray.length);      //, (int) image.length()
                     stmt.executeUpdate();
                 }
                 kephely.clear();
@@ -287,9 +297,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             imageUri = data.getData();
             kephely.add(imageUri);
-            //imageView.setImageURI(imageUri);
-            Toast.makeText(getApplicationContext(), imageUri.getPath(), Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplicationContext(), imageUri.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Kép csatolva!", Toast.LENGTH_SHORT).show();
         }
     }
 
