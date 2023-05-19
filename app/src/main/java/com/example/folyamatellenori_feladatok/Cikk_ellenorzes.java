@@ -277,8 +277,7 @@ public class Cikk_ellenorzes extends AppCompatActivity
             } catch (SQLException e) {
                 e.printStackTrace();
                 System.out.println(e);
-                Intent intent = new Intent(Cikk_ellenorzes.this, Cikk_ellenorzes.class);
-                startActivity(intent);
+                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
             }
             synchronized (zar_4) {
                 zar_4.notify();        // Értesítjük a zar_2-t, hogy mehet
