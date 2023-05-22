@@ -1,5 +1,8 @@
 package com.example.folyamatellenori_feladatok;
 
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -14,15 +17,18 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 
 import java.sql.Connection;
@@ -93,6 +99,7 @@ public class MainActivity extends AppCompatActivity
         ellenor = findViewById(R.id.nev_box);
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ellenorok);
         ellenor.setAdapter(arrayAdapter);
+        ActivityCompat.requestPermissions(MainActivity.this, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE},111);
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -161,8 +168,7 @@ public class MainActivity extends AppCompatActivity
         }
 
     @Override
-    public void onBackPressed() {
-    }
+    public void onBackPressed() {}
 
     @SuppressLint("StaticFieldLeak")
     public class Nevsor extends AsyncTask<Void, Void, Map<String, String>> {
@@ -201,19 +207,7 @@ public class MainActivity extends AppCompatActivity
             try (Connection connection = DriverManager.getConnection(MainActivity.IP, MainActivity.Felhasznalo, MainActivity.Jelszo)) {
 
                 String sql = "SELECT\n" +
-                        "veasnxtmonitor.folyamat_tabla.id,\n" +
-                        "veasnxtmonitor.folyamat_tabla.user_id,\n" +
-                        "veasnxtmonitor.folyamat_tabla.machine_id,\n" +
-                        "veasnxtmonitor.folyamat_tabla.allas_id,\n" +
-                        "veasnxtmonitor.folyamat_tabla.allas_ok_id,\n" +
-                        "veasnxtmonitor.folyamat_tabla.`comment`,\n" +
-                        "veasnxtmonitor.folyamat_tabla.start_tstamp,\n" +
-                        "veasnxtmonitor.folyamat_tabla.end_tstamp,\n" +
-                        "veasnxtmonitor.folyamat_tabla.auto_store,\n" +
-                        "veasnxtmonitor.folyamat_tabla.end_date,\n" +
-                        "veasnxtmonitor.folyamat_tabla.nxt_job_id,\n" +
-                        "veasnxtmonitor.allas_tabla.allas_name,\n" +
-                        "veasnxtmonitor.allas_ok_tabla.allas_ok_name\n" +
+                        "veasnxtmonitor.folyamat_tabla.machine_id \n" +
                         "FROM\n" +
                         "veasnxtmonitor.folyamat_tabla\n" +
                         "INNER JOIN veasnxtmonitor.allas_tabla ON veasnxtmonitor.allas_tabla.id = veasnxtmonitor.folyamat_tabla.allas_id\n" +
@@ -225,34 +219,34 @@ public class MainActivity extends AppCompatActivity
                 ResultSet eredmeny = statement.getResultSet();
                 int szam = 0;
                 while (eredmeny.next()) {
-                    if (eredmeny.getString(3).equals("1")) {
+                    if (eredmeny.getString(1).equals("1")) {
                         melyiknxt += "NXT01  ";
                     }
-                    else if (eredmeny.getString(3).equals("2")) {
+                    else if (eredmeny.getString(1).equals("2")) {
                         melyiknxt += "NXT02  ";
                     }
-                    else if (eredmeny.getString(3).equals("3")) {
+                    else if (eredmeny.getString(1).equals("3")) {
                         melyiknxt += "NXT03  ";
                     }
-                    else if (eredmeny.getString(3).equals("4")) {
+                    else if (eredmeny.getString(1).equals("4")) {
                         melyiknxt = "NXT04  ";
                     }
-                    else if (eredmeny.getString(3).equals("5")) {
+                    else if (eredmeny.getString(1).equals("5")) {
                         melyiknxt += "NXT05  ";
                     }
-                    else if (eredmeny.getString(3).equals("6")) {
+                    else if (eredmeny.getString(1).equals("6")) {
                         melyiknxt += "NXT06  ";
                     }
-                    else if (eredmeny.getString(3).equals("7")) {
+                    else if (eredmeny.getString(1).equals("7")) {
                         melyiknxt += "NXT07  ";
                     }
-                    else if (eredmeny.getString(3).equals("8")) {
+                    else if (eredmeny.getString(1).equals("8")) {
                         melyiknxt += "NXT08  ";
                     }
-                    else if (eredmeny.getString(3).equals("10")) {
+                    else if (eredmeny.getString(1).equals("10")) {
                         melyiknxt += "NXT09  ";
                     }
-                    else if (eredmeny.getString(3).equals("11")) {
+                    else if (eredmeny.getString(1).equals("11")) {
                         melyiknxt += "NXT010  ";
                     }
                     szam++;
@@ -268,6 +262,7 @@ public class MainActivity extends AppCompatActivity
             }
             catch (Exception e) {
                 System.out.println(e);
+                new Atallas_ellenorzo().execute();
             }
             return info;
         }
