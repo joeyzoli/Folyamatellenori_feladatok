@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity
                         "INNER JOIN veasnxtmonitor.allas_tabla ON veasnxtmonitor.allas_tabla.id = veasnxtmonitor.folyamat_tabla.allas_id\n" +
                         "INNER JOIN veasnxtmonitor.allas_ok_tabla ON veasnxtmonitor.allas_ok_tabla.id_allas = veasnxtmonitor.folyamat_tabla.allas_id AND veasnxtmonitor.allas_ok_tabla.id = veasnxtmonitor.folyamat_tabla.allas_ok_id\n" +
                         "where ((allas_id = 1 and (allas_ok_id = 3 or allas_ok_id = 10)) or (allas_id = 3 and allas_ok_id = 5))\n" +
-                        " and end_tstamp > date_add(now(),interval -3 MINUTE)";
+                        " and end_tstamp > date_add(now(),interval -60 MINUTE)";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet eredmeny = statement.getResultSet();
@@ -262,7 +262,6 @@ public class MainActivity extends AppCompatActivity
             }
             catch (Exception e) {
                 System.out.println(e);
-                new Atallas_ellenorzo().execute();
             }
             return info;
         }
@@ -270,21 +269,17 @@ public class MainActivity extends AppCompatActivity
 
     public void addNotification() {
         //Uri sound = Uri. parse (ContentResolver. SCHEME_ANDROID_RESOURCE + "://" + getPackageName() + "/raw/quite_impressed.mp3" ) ;
-        Uri sound = RingtoneManager.getActualDefaultRingtoneUri(getApplicationContext(), RingtoneManager.TYPE_RINGTONE);
-        Ringtone csengohang = RingtoneManager.getRingtone(getApplicationContext(), sound);
-        csengohang.setStreamType(AudioManager.STREAM_RING);
-        csengohang.play();
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity. this,
                 default_notification_channel_id )
                 .setSmallIcon(R.drawable. ic_launcher_foreground )
                 .setContentTitle( "Átállás" )
-                .setSound(sound)
+                //.setSound(sound)
                 .setContentText( "Átállás volt a következő soron:"+ melyiknxt );
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context. NOTIFICATION_SERVICE ) ;
         if (android.os.Build.VERSION. SDK_INT >= android.os.Build.VERSION_CODES. O ) {
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
                     .setContentType(AudioAttributes. CONTENT_TYPE_SONIFICATION )
-                    .setUsage(AudioAttributes. USAGE_ALARM )
+                    //.setUsage(AudioAttributes. USAGE_ALARM )
                     .build() ;
             int importance = NotificationManager. IMPORTANCE_HIGH ;
             NotificationChannel notificationChannel = new
@@ -293,13 +288,17 @@ public class MainActivity extends AppCompatActivity
             notificationChannel.setLightColor(Color. RED ) ;
             notificationChannel.enableVibration( true ) ;
             notificationChannel.setVibrationPattern( new long []{ 1500 , 1600 , 1700 , 1800 , 1900 , 1000 , 1900 , 1900 , 2000 }) ;
-            notificationChannel.setSound(sound , audioAttributes) ;
+            //notificationChannel.setSound(sound , audioAttributes) ;
             mBuilder.setChannelId( NOTIFICATION_CHANNEL_ID ) ;
             assert mNotificationManager != null;
             mNotificationManager.createNotificationChannel(notificationChannel) ;
         }
         assert mNotificationManager != null;
         mNotificationManager.notify(( int ) System. currentTimeMillis (), mBuilder.build()) ;
+        Uri sound = RingtoneManager.getActualDefaultRingtoneUri(getApplicationContext(), RingtoneManager.TYPE_RINGTONE);
+        Ringtone csengohang = RingtoneManager.getRingtone(getApplicationContext(), sound);
+        csengohang.setStreamType(AudioManager.STREAM_RING);
+        csengohang.play();
     }
 
 }
