@@ -109,9 +109,10 @@ public class masodik_ellenorzes extends AppCompatActivity
                     statement.executeUpdate();
                 }
                 else{
+                    String[] nxtsor = nxt_mezo.getText().toString().split(" ");
                     String sql = "INSERT INTO  qualitydb.Folyamatellenori_gyartas (Nev, Datum, nxt, Cikkszam, Csekk1,Csekk2,Csekk3,Csekk4,Csekk5,Csekk6,Csekk7,Csekk8,Csekk9" +
                             ",Csekk10,Csekk11,Csekk12,Csekk13,Csekk14,Csekk15,Csekk16, Megjegyzes) Values('" + MainActivity.Nev + "', '" + MainActivity.Datum +
-                            "', '" + nxt_mezo.getText().toString() + "', '" + cikkszam.getText().toString() + "','"+ gomb1.getText().toString() + "','"+ gomb2.getText().toString() +
+                            "', '" + nxtsor[0] + "', '" + cikkszam.getText().toString() + "','"+ gomb1.getText().toString() + "','"+ gomb2.getText().toString() +
                             "','"+ gomb3.getSelectedItem().toString() + "','"+ gomb4.getText().toString() +"','"+ gomb5.getText().toString() +"','"+ gomb6.getSelectedItem().toString() +"','"+
                             gomb15.getSelectedItem().toString() +"','"+ gomb16.getSelectedItem().toString() +"','"+
                             gomb7.getText().toString() +"','"+gomb8.getText().toString() +"','"+gomb9.getText().toString() +"','"+gomb10.getText().toString() +"','"+

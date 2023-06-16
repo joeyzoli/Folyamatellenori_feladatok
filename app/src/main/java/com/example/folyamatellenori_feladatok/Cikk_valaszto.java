@@ -77,7 +77,8 @@ public class Cikk_valaszto extends AppCompatActivity
         }
         else {
             ujcikk = findViewById(R.id.ujcikk_mezo);
-            String[] kontener = {nxt_mezo3.getText().toString() ,ujcikk.getText().toString()};
+            String[] valasztottnxt = nxt_mezo3.getText().toString().split(" ");
+            String[] kontener = {valasztottnxt[0] ,ujcikk.getText().toString()};
             nxt.add(kontener);
             Intent intent = new Intent(Cikk_valaszto.this, masodik_ellenorzes.class);
             intent.putExtra("Kuldo", nxt_mezo3.getText().toString() );

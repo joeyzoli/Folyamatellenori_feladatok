@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity
             Map<String, String> info = new HashMap<>();
             try (Connection connection = DriverManager.getConnection(MainActivity.URL, MainActivity.USER, MainActivity.PASSWORD)) {
 
-                String sql = "select Nev from qualitydb.Alapadatok_ellenorok where 3 = 3";
+                String sql = "select Nev from qualitydb.Alapadatok_ellenorok where 3 = 3 order by nev asc";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet eredmeny = statement.getResultSet();
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity
                         "INNER JOIN veasnxtmonitor.allas_tabla ON veasnxtmonitor.allas_tabla.id = veasnxtmonitor.folyamat_tabla.allas_id\n" +
                         "INNER JOIN veasnxtmonitor.allas_ok_tabla ON veasnxtmonitor.allas_ok_tabla.id_allas = veasnxtmonitor.folyamat_tabla.allas_id AND veasnxtmonitor.allas_ok_tabla.id = veasnxtmonitor.folyamat_tabla.allas_ok_id\n" +
                         "where ((allas_id = 1 and (allas_ok_id = 3 or allas_ok_id = 10)) or (allas_id = 3 and allas_ok_id = 5))\n" +
-                        " and end_tstamp > date_add(now(),interval -60 MINUTE)";
+                        " and end_tstamp > date_add(now(),interval -3 MINUTE)";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.execute();
                 ResultSet eredmeny = statement.getResultSet();
